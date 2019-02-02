@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <!-- cartIcon -->
     <div class="fixed-control" @click="cartPage()">
       <i class="fas fa-shopping-cart my-3 fa-2x" style="z-index:100">
@@ -153,7 +153,7 @@
                     <button
                       type="button"
                       class="btn btn-primary"
-                      @click="addtoCart(product.item, product.id,product.num)"
+                      @click="addtoCart(product.item,product.id,product.num)"
                     >Add to Cart</button>
                   </div>
                 </div>
@@ -279,7 +279,7 @@ export default {
       });
     },
     //商品加入購物車行為
-    addtoCart(item, id, qty = 1) {
+    addtoCart(item,id, qty = 1) {
       const vm = this;
       const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
       vm.status.loadingItem = item;
@@ -291,8 +291,7 @@ export default {
         console.log(response);
         vm.status.loadingItem = "";
         vm.getCart();
-        //155，加入購物車後，取回購物車完整內容
-        // $("#productModal").modal("hide");
+        //加入購物車後，取回購物車完整內容
       });
     },
     //取得購物車資訊
