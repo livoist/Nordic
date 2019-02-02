@@ -1,0 +1,344 @@
+body {
+  font-size: .875rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 48px; /* Height of navbar */
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+/*
+ * Utilities
+ */
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+
+
+
+// HomePage-All
+
+
+//mixin-scope lighten-color-box(row)
+$colorGreen: #00ffbb;
+$colorRed: #f41658;
+$colorYellow: #f9d625;
+$colorBlue: #315cf7;
+$colorPurple: #a340f9;
+@mixin setBlockColor($color) {
+  box-shadow: 0px 0px 35px rgba($color,0.2);
+  background-color: transparent;
+  border: 1px solid lighten($color,5);
+  cursor: pointer;
+    &:hover {
+        background-color: rgba($color,0.3);
+        box-shadow: 0px 0px 35px rgba($color,0.5);
+        &:nth-child(1){
+          &:before {
+            content: 'Iceland';
+            opacity: 0.7;
+            font-weight: bold;
+          }
+        };
+        &:nth-child(2){
+          &:before {
+            content: 'Norway';
+            opacity: 0.7;
+            font-weight: bold;
+          }
+        };
+        &:nth-child(3){
+          &:before {
+            content: 'Finland';
+            opacity: 0.7;
+            font-weight: bold;
+          }
+        };
+        &:nth-child(4){
+          &:before {
+            content: 'Danmark';
+            opacity: 0.7;
+            font-weight: bold;
+          }
+        };
+        &:nth-child(5){
+          &:before {
+            content: 'Sweden';
+            opacity: 0.7;
+            font-weight: bold;
+          }
+        }
+    }
+    &:active {
+        transition: 0s;
+        background-color: $color;
+        box-shadow: 0px 0px 45px $color;
+    }
+}
+
+@mixin size($w,$h:$w) {
+  width: $w;
+  height: $h;
+}
+.color-box {
+  @include size(110px);
+  transition:0.5s;
+  &.color-box1 {
+    @include setBlockColor($colorGreen);
+    transform: translate(20px,20px) rotate(30deg);
+  }
+  &.color-box2 {
+    @include setBlockColor($colorRed);
+    transform: translate(100px,-10px) rotate(45deg);
+  }
+  &.color-box3 {
+    @include setBlockColor($colorYellow);
+    transform: translate(20px,-20px) rotate(60deg);
+  }
+  &.color-box4 {
+    @include setBlockColor($colorBlue);
+    transform: translate(100px,-10px) rotate(75deg);
+  }
+  &.color-box5 {
+    @include setBlockColor($colorPurple);
+    transform: translate(20px,-10px) rotate(95deg);
+  }
+}
+.bg-color {
+  background-color: rgb(13, 13, 14);
+}
+.aurora-picture-border {
+  border: 1px solid rgb(153, 151, 151);
+  box-sizing: border-box;
+}
+.input-style {
+  opacity: 0.6;
+  width: 450px;
+  outline:none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(8, 60, 77);
+}
+::placeholder {
+  color: rgb(233, 255, 252);
+}
+.font-opacity {
+  opacity: 0.8;
+}
+
+
+
+
+
+.Parallax-Scrolling {
+  background-image: url(https://images.unsplash.com/photo-1489782419474-4d4221dc5b10?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.magin-gutter {
+  margin-top: 250px;
+}
+.bg-cover {
+  background-size: cover;
+  background-position: center center;
+}
+.social-font-color {
+  color: white;
+  opacity: 0.6;
+  font-weight: 900;
+  font-size: 12px;
+}
+.web-footer-content-border {
+  opacity: 0.4;
+  transition: 1s;
+  border-bottom: 1px solid white;
+}
+.web-footer-content-border:hover {
+  opacity: 0.9;
+  transition: 1s;
+  border-bottom: 1px solid white;
+}
+.web-footer-social-icon {
+  width: 65px;
+  position: relative;
+  transition: all 1s;
+}
+.web-footer-social-icon:hover {
+  /* 先設定漸層背景色
+    漸層背景色套用到文字上
+    把預設文字顏色變為透明
+    旋轉360度 */
+  background: -webkit-linear-gradient(top, #70b3f3 0, #335eee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: rotate(360deg);
+}
+.picture-gutter {
+  margin: 5px;
+}
+.picture-over-hidden {
+  overflow: hidden;
+}
+.btn-scale {
+  transition: 0.5s;
+}
+.btn-scale:hover {
+  transform: scale(1.2);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+
+//animated scope
+.animated {
+  opacity: 0;
+  transition: 2s;
+  transform: translateY(70px);
+}
+.animated-2 {
+  opacity: 0;
+  transition: 1s;
+  transform: translateX(70px);
+  transition-delay: 1s;
+}
+.animated-3 {
+  opacity: 0;
+  transition: 1s;
+  transform: translateY(100px);
+  transition-delay: 1s;
+}
+.animated-4 {
+  opacity: 0;
+  transition: 2s;
+  transform: translateX(-100px);
+  transition-delay: 1s;
+}
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.bg-image {
+  background-image:url(https://images.unsplash.com/photo-1485646485012-f09e6a19d9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)
+}
+// .bg-image-2 {
+//   background-image:url(https://images.unsplash.com/photo-1488804297330-2b6016fe2f45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)
+// }
+// .bg-image-3 {
+//   background-image:url(https://images.unsplash.com/photo-1497138169556-ba5743a6031c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)
+// }
+// .bg-image-4 {
+//   background-image:url(https://images.unsplash.com/photo-1465757893864-947a0f770df9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)
+// }
+// .bg-image-5 {
+//   background-image:url(https://images.unsplash.com/photo-1464550838636-1a3496df938b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=80)
+// }
+
+//shopping page
+
+.cartList {
+  list-style: none;
+}
+
+.fixed-control {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.fixed-control:hover {
+  opacity: 1;
+}
+
+.fadeIn-2 {
+  background-color: #fff;
+}
+
+.price-middle-line {
+  text-decoration: line-through;
+}

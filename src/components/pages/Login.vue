@@ -1,0 +1,160 @@
+<template>
+<html>
+  <body>
+    <div class="" style="border: 3px solid black">
+      <form class="form-signin bg-light" @submit.prevent="signin">
+        <div class="text-center mb-5">
+          <i class="fas fa-dice-d20 text-black fa-2x"></i>
+          <a class href.prevent="#" style="text-decoration: none">Nordic</a>
+        </div>
+        <h1 class="h5 mb-3 font-weight-normal text-center">Login</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input
+          v-model="user.username"
+          type="email"
+          id="inputEmail"
+          class="form-control"
+          placeholder="Email address"
+          required
+          autofocus
+        >
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input
+          v-model="user.password"
+          type="password"
+          id="inputPassword"
+          class="form-control"
+          placeholder="Password"
+          required
+        >
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <div class="d-flex justify-content-center mt-5">
+          <div class="icon-border p-1 mx-2">
+            <i class="fab fa-facebook-f">
+              <span class="icon-left mx-2">
+                <span class="ml-2">Facebook</span>
+              </span>
+            </i>
+          </div>
+          <div class="icon-border p-1 mr-2">
+            <i class="fab fa-twitter">
+              <span class="icon-left mx-2">
+                <span class="ml-2">Twitter</span>
+              </span>
+            </i>
+          </div>
+          <div class="icon-border p-1 mr-2">
+            <i class="fab fa-google">
+              <span class="icon-left mx-2">
+                <span class="ml-2">Google</span>
+              </span>
+            </i>
+          </div>
+        </div>
+        <p class="pt-3 mt-5 text-muted year-fixed text-center" style="font-size: 13px">&copy;2019 Account Login Widget All Reserved <br> | Design by Ben</p>
+      </form>
+    </div>
+  </body>
+</html>
+</template>
+
+<style>
+.icon-border {
+  border: 1px solid black;
+}
+.icon-left::before {
+  content: "";
+  border: 0.5px solid black;
+}
+.icon-border:hover {
+  color: white;
+  cursor: pointer;
+  background-color: black;
+}
+</style>
+
+
+<script>
+export default {
+  name: "HelloWorld",
+  data() {
+    return {
+      user: {
+        username: "",
+        password: ""
+      }
+    };
+  },
+  methods: {
+    signin() {
+      const api = `${process.env.APIPATH}/admin/signin`;
+      const checkAPI = `${process.env.APIPATH}/api/user/check`;
+      const vm = this;
+      this.$http.post(api, vm.user).then(response => {
+        console.log(response.data);
+        if (response.data.success) {
+          vm.$router.push("/admin/products");
+        }
+      });
+    }
+  }
+};
+</script>
+
+<!--scope綁定範圍使用-->
+<style scoped>
+html,
+body {
+  height: 610px;
+}
+
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: white;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 350px;
+  padding: 30px;
+  margin: 0 auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>
