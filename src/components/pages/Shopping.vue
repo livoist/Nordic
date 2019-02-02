@@ -101,9 +101,9 @@
                   <button
                     type="button"
                     class="btn btn-outline-secondary btn-sm ml-auto"
-                    @click="addtoCart(product.item,product.id)"
+                    @click="addtoCart(item,id)"
                   >
-                    <i class="fas fa-spinner fa-pulse" v-if="status.loadingItem === id"></i>
+                    <i class="fas fa-spinner fa-pulse" v-if="status.loadingItem === item"></i>
                     Add Cart
                   </button>
                 </div>
