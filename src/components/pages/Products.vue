@@ -156,13 +156,13 @@
                     >
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="price">unit</label>
+                    <label for="num">unit</label>
                     <input
-                      v-model="tempProduct.unit"
-                      type="unit"
+                      v-model="tempProduct.num"
+                      type="text"
                       class="form-control"
-                      id="unit"
-                      placeholder="請輸入單位"
+                      id="num"
+                      placeholder="請輸入數量"
                     >
                   </div>
                 </div>
@@ -315,7 +315,7 @@ export default {
         api = `${process.env.APIPATH}/api/${
           process.env.CUSTOMPATH
         }/admin/product/${vm.tempProduct.id}`;
-        httpMethod = "put";
+        let httpMethod = "put";
         //如果不是新的，進入編輯模式，改為put修改，並且綁上ID確認為哪個物件
         //更新API的方法，get為取得，post為建立，put為修改(後補上ID確認修改項目)
       }

@@ -142,7 +142,7 @@
                       <div class="h4 text-danger" v-if="product.price">Sale ${{ product.price }}</div>
                     </div>
                     <select name class="form-content mt-3" v-model="product.num">
-                      <option :value="num" v-for="num in 10" :key="num">{{ num }}</option>
+                      <option :value="num" v-for="num in 10" :key="num"> {{ num }} </option>
                     </select>
                   </div>
                   <div class="modal-footer">
