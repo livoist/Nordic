@@ -94,7 +94,7 @@
                     class="btn btn-outline-secondary btn-sm"
                     @click="getProduct(item)"
                   >
-                    <i class="fas fa-sync fa-spin" v-if="status.loadingItem === item"></i>
+                    <i class="fas fa-sync fa-spin" v-if="status.loadingItem === item.id"></i>
                     See More
                   </button>
                   <!-- 加入購物車，並加入動態icon判斷參數 -->
@@ -103,7 +103,7 @@
                     class="btn btn-outline-secondary btn-sm ml-auto"
                     @click="addtoCart(item,id)"
                   >
-                    <i class="fas fa-spinner fa-pulse" v-if="status.loadingItem === item"></i>
+                    <i class="fas fa-spinner fa-pulse" v-if="status.loadingItem === id"></i>
                     Add Cart
                   </button>
                 </div>
@@ -160,45 +160,6 @@
               </div>
             </div>
           </div>
-
-          <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              <li class="page-item" :class="{'disabled': !pagination.has_pre}">
-                <a
-                  class="page-link"
-                  href="#"
-                  aria-label="Previous"
-                  @click.prevent="getProducts(pagination.current_page - 1)"
-                >
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <!-- 點擊事件(取消預設行為)，取得產品頁面的所在頁數-1(回上頁) -->
-              </li>
-              <li
-                class="page-item"
-                v-for="page in pagination.total_pages"
-                :key="page"
-                :class="{'active':pagination.current_page === page}"
-              >
-                <a class="page-link" href="#" @click.prevent="getProducts(page)">{{ page }}</a>
-              </li>
-              <!-- 點擊事件(取消預設行為)，取得產品頁面的所在頁數，並且顯示出來 -->
-              <!-- 條件切換(active)，若現在的頁面等於取得的頁面則顯示active -->
-              <li class="page-item" :class="{'disabled': !pagination.has_next}">
-                <a
-                  class="page-link"
-                  href="#"
-                  aria-label="Next"
-                  @click.prevent="getProducts(pagination.current_page + 1)"
-                >
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-                <!-- 點擊事件(sr-only取消預設行為)，取得產品頁面的所在頁數+1(往下頁) -->
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
@@ -287,8 +248,8 @@ export default {
         product_id: id,
         qty
       };
-      this.$http.post(url, { data: cart }).then(response => {
-        console.log(response);
+      this.$http.post(url, { data: cart }).then(res => {
+        console.log(res);
         vm.status.loadingItem = "";
         vm.getCart();
         //加入購物車後，取回購物車完整內容
@@ -300,10 +261,10 @@ export default {
       const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
       vm.isLoading = true;
       //全畫面loading icon觸發
-      this.$http.get(url).then(response => {
-        console.log(response);
+      this.$http.get(url).then(res => {
+        console.log(res);
         vm.isLoading = false;
-        vm.cart = response.data.data;
+        vm.cart = res.data.data;
         //定義陣列Cart，並把更新後的Data傳入Cart
         //全畫面loading icon關閉
       });
