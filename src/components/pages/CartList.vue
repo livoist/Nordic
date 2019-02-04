@@ -3,7 +3,7 @@
     <div class="container mt-5">
           <div class="row">
             <loading :active.sync="isLoading"></loading>
-            <div class="col-8">
+            <div class="col-12">
               <!--先把抓出來的response.data.data存入陣列cart
               ，在用v-for取出data中的carts(cart.carts)，印出的部分再用item下的product取出裡面的值做渲染-->
               <ul>

@@ -94,16 +94,16 @@
                     class="btn btn-outline-secondary btn-sm"
                     @click="getProduct(item)"
                   >
-                    <i class="fas fa-sync fa-spin" v-if="status.loadingItem === item.id"></i>
+                    <i class="fas fa-sync fa-spin" v-if="status.loadingItem === item"></i>
                     See More
                   </button>
                   <!-- 加入購物車，並加入動態icon判斷參數 -->
                   <button
                     type="button"
                     class="btn btn-outline-secondary btn-sm ml-auto"
-                    @click="addtoCart(item,id)"
+                    @click="addtoCart(item,item.id)"
                   >
-                    <i class="fas fa-spinner fa-pulse" v-if="status.loadingItem === id"></i>
+                    <i class="fas fa-spinner fa-pulse" v-if="status.loadingItem === item.id"></i>
                     Add Cart
                   </button>
                 </div>
@@ -227,7 +227,7 @@ export default {
         process.env.CUSTOMPATH
       }/product/${item.id}`;
       // 抓取點擊物件(加上ID)的API
-      vm.status.loadingItem = item.id;
+      // vm.status.loadingItem = item.id;
       //data設定空值存放抓取的id進行比對
       vm.isLoading = true;
       this.$http.get(url).then(response => {
@@ -235,7 +235,7 @@ export default {
         console.log(response);
         vm.product = response.data.product;
         vm.isLoading = false;
-        vm.status.loadingItem = "";
+        // vm.status.loadingItem = "";
         //結束後結束loading icon
       });
     },
