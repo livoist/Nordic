@@ -88,107 +88,80 @@
     <!-- Meddile row1 3x3-card -->
     <div class="container-fluid magin-gutter">
       <div class="row d-flex">
-        <div
-          class="col-md-4 animated-3 py-5 bg-cover"
-          style="background-image: url(https://i.pinimg.com/564x/5f/94/0f/5f940fc70b1191f8c66b9e3ea8bed71e.jpg)"
-        >
+        <div class="col-md-4 animated-3 py-5 bg-cover picture-background-1">
           <div class="text-center text-light mt-5 py-3">
             <small>iceland</small>
             <div class="h3" style>Country</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">Get</div>
+            <div class="btn btn-sm btn-outline-warning">More</div>
           </div>
         </div>
-        <div
-          class="col-md-4 animated-3 py-5 bg-cover"
-          style="background-image: url(https://i.pinimg.com/564x/b0/ab/7c/b0ab7cd9bff1dd98df515f8ad27e0d75.jpg)"
-        >
+        <div class="col-md-4 animated-3 py-5 bg-cover picture-background-1">
           <div class="text-center text-light py-3 mt-5">
             <small>norway</small>
             <div class="h3">Wild</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">Get</div>
+            <div class="btn btn-sm btn-outline-warning">More</div>
           </div>
         </div>
-        <div
-          class="col-md-4 animated-3 py-5 bg-cover"
-          style="background-image: url(https://i.pinimg.com/564x/3f/34/02/3f340296d679068abd6378d76c960aba.jpg)"
-        >
+        <div class="col-md-4 animated-3 py-5 bg-cover picture-background-1">
           <div class="text-center text-light py-3 mt-5">
             <small>finland</small>
             <div class="h3">Animal</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">Get</div>
+            <div class="btn btn-sm btn-outline-warning">More</div>
           </div>
         </div>
       </div>
       <div class="row d-flex">
-        <div
-          class="col-md-4 animated-3 py-5 bg-cover"
-          style="background-image: url(https://i.pinimg.com/564x/09/4b/77/094b776a96d7e27169b0377cd61de359.jpg)"
-        >
+        <div class="col-md-4 animated-3 py-5 bg-cover picture-background-2">
           <div class="text-center text-light py-3 mt-5">
             <small>denmark</small>
             <div class="h3">City</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">Get</div>
+            <div class="btn btn-sm btn-outline-warning">More</div>
           </div>
         </div>
-        <div
-          class="col-md-4 animated-3 py-5 bg-cover"
-          style="background-image: url(https://i.pinimg.com/564x/86/7c/03/867c03772b887b32394ea3752c5f4b3d.jpg)"
-        >
+        <div class="col-md-4 animated-3 py-5 bg-cover picture-background-2">
           <div class="text-center text-light py-3 mt-5">
             <small>iceland</small>
             <div class="h3">Living</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">Get</div>
+            <div class="btn btn-sm btn-outline-warning">More</div>
           </div>
         </div>
-        <div
-          class="col-md-4 animated-3 py-5 bg-cover"
-          style="background-image: url(https://images.unsplash.com/photo-1490237014491-822aee911b99?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)"
-        >
+        <div class="col-md-4 animated-3 py-5 bg-cover picture-background-2">
           <div class="text-center text-light py-3 mt-5">
             <small>norway</small>
             <div class="h3">Mountaineering</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">Get</div>
+            <div class="btn btn-sm btn-outline-warning">More</div>
           </div>
         </div>
       </div>
       <div class="row d-flex">
-        <div
-          class="col-md-4 animated-3 py-5 bg-cover"
-          style="background-image: url(https://images.unsplash.com/photo-1504519560822-bed2d817f87f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"
-        >
+        <div class="col-md-4 animated-3 py-5 bg-cover picture-background-3">
           <div class="text-center text-light py-3 mt-5">
             <small>iceland</small>
             <div class="h3">Trolltunga</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">Get</div>
+            <div class="btn btn-sm btn-outline-warning">More</div>
           </div>
         </div>
-        <div
-          class="col-md-4 animated-3 py-5 bg-cover"
-          style="background-image: url(https://images.unsplash.com/photo-1460999158988-6f0380f81f4d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"
-        >
+        <div class="col-md-4 animated-3 py-5 bg-cover picture-background-3">
           <div class="text-center text-light py-3 mt-5">
             <small>finland</small>
             <div class="h3">Wild Horse</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">Get</div>
+            <div class="btn btn-sm btn-outline-warning">More</div>
           </div>
         </div>
-        <div
-          class="col-md-4 animated-3 py-5 bg-cover"
-          style="background-image: url(https://i.pinimg.com/564x/5a/f8/a1/5af8a1ced7d923a07c0ef44655cb1861.jpg)"
-        >
+        <div class="col-md-4 animated-3 py-5 bg-cover picture-background-3">
           <div class="text-center text-light py-3 mt-5">
             <small>norway</small>
             <div class="h3">volcanic</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">Get</div>
+            <div class="btn btn-sm btn-outline-warning">More</div>
           </div>
         </div>
       </div>
@@ -201,13 +174,14 @@
           <div class="color-box-item">
             <div
               class="animated-4 color-box color-box1 text-center d-flex align-items-center justify-content-center"
-              
             >
-            <a href="#pane-1"></a></div>
+              <a href="#pane-1"></a>
+            </div>
             <div
               class="animated-4 color-box color-box2 text-center d-flex align-items-center justify-content-center"
-              
-            ><a href="#pane-2"></a></div>
+            >
+              <a href="#pane-2"></a>
+            </div>
             <div
               class="animated-4 color-box color-box3 text-center d-flex align-items-center justify-content-center"
               id="tour-btn3"
@@ -227,7 +201,7 @@
           <div class="tab-pane active aurora-picture-border bg-image text-center text-white bg-cover d-flex flex-column justify-content-start align-items-center"  id="pane-1" style="width:auto;height:100%"></div>
           <div class="tab-pane aurora-picture-border bg-image-2 text-center text-white bg-cover d-flex flex-column justify-content-start align-items-center"  id="pane-2" style="width:auto;height:100%"></div>
           
-        </div> -->
+        </div>-->
         <div
           class="aurora-picture-border bg-image col-6 col-md-9 text-center text-white bg-cover d-flex flex-column justify-content-start align-items-center"
         >
@@ -392,14 +366,17 @@
             <div class="mt-2 social-font-color">Linkeddin</div>
           </div>
         </div>
-        <div class="d-flex justify-content-center m-0 text-center text-white pt-5" style>
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex justify-content-center m-0 text-center text-white pt-5" style>
           <div
             class="p-3"
           >To collect all of these personality types in one place, we made a list of every single person you’ll meet in high school. While you’re clicking through, keep one thing in mind: if you think that your school doesn’t have mouth-breathing loud chewer</div>
         </div>
-
-
-        <div class="container-fluid">
+            </div>
+          </div>
           <div class="row mb-3">
             <div
               class="col-12 d-flex align-items-center justify-content-around pt-5 text-center text-white"
@@ -407,15 +384,18 @@
               <div class="web-footer-content-border">Email: Info@aleart.com.tw</div>
               <div class="web-footer-content-border">Phone: +886 22345781</div>
               <div
-                class="web-footer-content-border"
-              >Address: 10F., No.128, Sec. 1,Neihu Rd., Neihu Dist., Taipei City 114, Taiwan (R.O.C.)</div>
+                class="web-footer-content-border d-flex justify-content-center"
+              ><div>Address: 10F., No.128, Sec. 1,Neihu Rd., Neihu Dist., Taipei City 114, Taiwan (R.O.C.)</div>
+              </div>
             </div>
           </div>
           <div class="row d-flex flex-column justify-content-center align-items-center">
             <div class="col-10 p-3 mt-1" style="border-bottom:1px solid white"></div>
             <div class="col-12">
-              <div class="text-center text-white p-4">©2019 Account Login Widget All Reserved 
-| Design by Ben</div>
+              <div class="text-center text-white p-4">
+                ©2019 Account Login Widget All Reserved
+                | Design by Ben
+              </div>
             </div>
           </div>
         </div>
