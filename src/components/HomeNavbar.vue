@@ -1,7 +1,7 @@
 <template>
 <div>
 <!-- bar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light py-2 bar-fadein">
+<nav class="navbar fixed-top navbar-expand-lg py-2 bar-fadein">
   <div class="" @click="goHome()">
     <i class="fas fa-dice-d20 text-dark fa-2x"></i> 
     <a class="" href="#" style="text-decoration: none">Nordic</a> 

@@ -231,6 +231,7 @@ export default {
       //data設定空值存放抓取的id進行比對
       vm.isLoading = true;
       this.$http.get(url).then(response => {
+        item.num = 1
         $("#productModal").modal("show");
         console.log(response);
         vm.product = response.data.product;

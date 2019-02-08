@@ -1,9 +1,13 @@
 <template>
   <div>
-    <div class="container mt-5">
-          <div class="row">
+    <div class="d-flex justify-content-center align-items-center flex-column" v-if="cart.carts.length == 0">
+      <div class="h3 p-5">Your cart is empty</div>
+      <router-link class="btn btn-md btn-dark mb-5" :to="{name:'Shopping'}" exact>Back to pick</router-link>
+      </div>
+    <div class="container mt-5" v-else>
+          <div class="row d-flex justify-content-center">
             <loading :active.sync="isLoading"></loading>
-            <div class="col-12">
+            <div class="col-8 col-md-10">
               <!--先把抓出來的response.data.data存入陣列cart
               ，在用v-for取出data中的carts(cart.carts)，印出的部分再用item下的product取出裡面的值做渲染-->
               <ul>

@@ -19,7 +19,7 @@
                   <p
                     class="h5 mt-5"
                   >Norway is a quiet and beautiful place, welcome to a quiet country</p>
-                  <div class="btn btn-outline-light mt-5">More</div>
+                  <div class="btn btn-outline-light mt-5" @click="changePage('More')">More</div>
                 </div>
               </div>
             </div>
@@ -49,11 +49,14 @@
             </div>
             <div class="col-4 d-flex justify-content-center">
               <div class="d-flex flex-column ml-5" style="width:100px">
-                <div class="btn btn-dark btn-sm mt-3 animated-2">Norway</div>
-                <div class="btn btn-dark btn-sm mt-3 animated-2">Finland</div>
-                <div class="btn btn-dark btn-sm mt-3 animated-2">Iceland</div>
-                <div class="btn btn-dark btn-sm mt-3 animated-2">Denmark</div>
-                <div class="btn btn-dark btn-sm mt-3 animated-2">Sweden</div>
+                <div
+                  class="btn btn-secondary btn-sm mt-3 animated-2"
+                  @click="changePage('Norway')"
+                >Norway</div>
+                <div class="btn btn-secondary btn-sm mt-3 animated-2" @click="changePage()">Finland</div>
+                <div class="btn btn-secondary btn-sm mt-3 animated-2" @click="changePage()">Iceland</div>
+                <div class="btn btn-secondary btn-sm mt-3 animated-2" @click="changePage()">Denmark</div>
+                <div class="btn btn-secondary btn-sm mt-3 animated-2" @click="changePage()">Sweden</div>
               </div>
             </div>
           </div>
@@ -93,7 +96,7 @@
             <small>iceland</small>
             <div class="h3" style>Country</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">More</div>
+            <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
           </div>
         </div>
         <div class="col-md-4 animated-3 py-5 bg-cover picture-background-1">
@@ -101,7 +104,7 @@
             <small>norway</small>
             <div class="h3">Wild</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">More</div>
+            <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
           </div>
         </div>
         <div class="col-md-4 animated-3 py-5 bg-cover picture-background-1">
@@ -109,7 +112,7 @@
             <small>finland</small>
             <div class="h3">Animal</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">More</div>
+            <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
           </div>
         </div>
       </div>
@@ -119,7 +122,7 @@
             <small>denmark</small>
             <div class="h3">City</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">More</div>
+            <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
           </div>
         </div>
         <div class="col-md-4 animated-3 py-5 bg-cover picture-background-2">
@@ -127,7 +130,7 @@
             <small>iceland</small>
             <div class="h3">Living</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">More</div>
+            <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
           </div>
         </div>
         <div class="col-md-4 animated-3 py-5 bg-cover picture-background-2">
@@ -135,7 +138,7 @@
             <small>norway</small>
             <div class="h3">Mountaineering</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">More</div>
+            <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
           </div>
         </div>
       </div>
@@ -145,7 +148,7 @@
             <small>iceland</small>
             <div class="h3">Trolltunga</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">More</div>
+            <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
           </div>
         </div>
         <div class="col-md-4 animated-3 py-5 bg-cover picture-background-3">
@@ -153,7 +156,7 @@
             <small>finland</small>
             <div class="h3">Wild Horse</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">More</div>
+            <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
           </div>
         </div>
         <div class="col-md-4 animated-3 py-5 bg-cover picture-background-3">
@@ -161,7 +164,7 @@
             <small>norway</small>
             <div class="h3">volcanic</div>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="btn btn-sm btn-outline-warning">More</div>
+            <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
           </div>
         </div>
       </div>
@@ -279,22 +282,26 @@
     <!-- bottom row 4x1 picture-box -->
     <div class="container-fluid">
       <div class="row" style="height: 300px">
-        <div
-          class="col-6 col-md-3 bg-cover"
-          style="background-image: url(https://i.pinimg.com/564x/f3/3b/7d/f33b7d461d046605f316d1ca15fb9835.jpg)"
-        ></div>
-        <div
-          class="col-6 col-md-3 bg-cover"
-          style="background-image: url(https://i.pinimg.com/564x/70/4a/a2/704aa2bee7a433764f6ce12de89195c6.jpg)"
-        ></div>
-        <div
-          class="col-6 col-md-3 bg-cover"
-          style="background-image: url(https://i.pinimg.com/564x/22/ff/68/22ff68ae56a971720678396311ae8956.jpg)"
-        ></div>
-        <div
-          class="col-6 col-md-3 bg-cover"
-          style="background-image: url(https://i.pinimg.com/564x/59/9f/e5/599fe5fa384b8ebc88502944cca01b10.jpg)"
-        ></div>
+        <div class="col-6 col-md-3 bg-cover half-box">
+          <div class="transparent-box d-flex justify-content-center align-items-center">
+            <div class="border-white">Norway</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 bg-cover half-box">
+          <div class="transparent-box d-flex justify-content-center align-items-center">
+            <div class="border-white">Finland</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 bg-cover half-box">
+          <div class="transparent-box d-flex justify-content-center align-items-center">
+            <div class="border-white">Sweden</div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 bg-cover half-box">
+          <div class="transparent-box d-flex justify-content-center align-items-center">
+            <div class="border-white">Denmark</div>
+            </div>
+        </div>
       </div>
     </div>
 
@@ -371,10 +378,10 @@
           <div class="row">
             <div class="col-12">
               <div class="d-flex justify-content-center m-0 text-center text-white pt-5" style>
-          <div
-            class="p-3"
-          >To collect all of these personality types in one place, we made a list of every single person you’ll meet in high school. While you’re clicking through, keep one thing in mind: if you think that your school doesn’t have mouth-breathing loud chewer</div>
-        </div>
+                <div
+                  class="p-3"
+                >To collect all of these personality types in one place, we made a list of every single person you’ll meet in high school. While you’re clicking through, keep one thing in mind: if you think that your school doesn’t have mouth-breathing loud chewer</div>
+              </div>
             </div>
           </div>
           <div class="row mb-3">
@@ -383,9 +390,8 @@
             >
               <div class="web-footer-content-border">Email: Info@aleart.com.tw</div>
               <div class="web-footer-content-border">Phone: +886 22345781</div>
-              <div
-                class="web-footer-content-border d-flex justify-content-center"
-              ><div>Address: 10F., No.128, Sec. 1,Neihu Rd., Neihu Dist., Taipei City 114, Taiwan (R.O.C.)</div>
+              <div class="web-footer-content-border d-flex justify-content-center">
+                <div>Address: 10F., No.128, Sec. 1,Neihu Rd., Neihu Dist., Taipei City 114, Taiwan (R.O.C.)</div>
               </div>
             </div>
           </div>
@@ -465,7 +471,19 @@ $(document).ready(function() {
 
 export default {
   data() {
-    return {};
+    return {
+      products: [],
+      filterTodos: []
+    };
+  },
+  methods: {
+    changePage(name) {
+      if (
+        (name == "Norway", "Iceland", "Finland", "Denmark", "Sweden", "More")
+      ) {
+        this.$router.push("/Shopping");
+      }
+    }
   },
   created() {
     // social icon tool

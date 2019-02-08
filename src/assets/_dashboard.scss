@@ -292,7 +292,7 @@ $colorPurple: #a340f9;
   opacity: 0;
   transition: 2s;
   transform: translateX(-100px);
-  transition-delay: 1s;
+  transition-delay: 1.5s;
 }
 .fadeIn {
   opacity: 1;
@@ -392,4 +392,41 @@ $colorPurple: #a340f9;
   }
 }
 
+//4x1 card animated
+.transparent-box {
+  opacity: 0;
+  color: white;
+  background-color: rgba(black,0.8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: 0.5s;
+  bottom: 0;
+  left: 0;
+  font-size: 20px;
+  transform: translateX(150px);
+}
+.border-white {
+  padding: 50px;
+}
+.half-box {
+  &:hover {
+    .transparent-box {
+      opacity: 1;
+      transform: translate(0px);
+    }
+  }
+  &:nth-child(1) {
+    background-image: url(https://i.pinimg.com/564x/f3/3b/7d/f33b7d461d046605f316d1ca15fb9835.jpg);
+  };
+  &:nth-child(2) {
+    background-image: url(https://i.pinimg.com/564x/70/4a/a2/704aa2bee7a433764f6ce12de89195c6.jpg);
+  };
+  &:nth-child(3) {
+    background-image: url(https://i.pinimg.com/564x/22/ff/68/22ff68ae56a971720678396311ae8956.jpg);
+  };
+  &:nth-child(4) {
+    background-image: url(https://i.pinimg.com/564x/59/9f/e5/599fe5fa384b8ebc88502944cca01b10.jpg)
+  };
+}
 
