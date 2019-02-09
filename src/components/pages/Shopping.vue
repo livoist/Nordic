@@ -1,8 +1,8 @@
 <template>
-  <div class="">
+  <div class="" style="background-color: #424040">
     <!-- cartIcon -->
     <div class="fixed-control" @click="cartPage()">
-      <i class="fas fa-shopping-cart my-3 fa-2x" style="z-index:100">
+      <i class="fas fa-shopping-cart my-3 fa-2x text-white" style="z-index:100">
         <span class="h6">{{ cart.carts.length }}</span>
       </i>
     </div>
@@ -15,11 +15,11 @@
       <div class="row-reverse">
         <div class="col-md-12 text-center" style="z-index:1">
           <div
-            class="list-group list-group-flush sticky-top mt-5"
+            class="list-group list-group-flush sticky-top"
             style="top:5px;font-family:Didot, serif"
           >
             <a
-              class="list-group-item list-group-item-action text-dark"
+              class="list-group-item list-group-item-action text-white bg-dark"
               href="#pane-1"
               data-toggle="list"
               @click="filterProduct('iceland')"
@@ -28,7 +28,7 @@
               Iceland
             </a>
             <a
-              class="list-group-item list-group-item-action text-dark"
+              class="list-group-item list-group-item-action text-white bg-dark"
               href="#pane-5"
               data-toggle="list"
               @click="filterProduct('finland')"
@@ -37,7 +37,7 @@
               Finland
             </a>
             <a
-              class="list-group-item list-group-item-action text-dark"
+              class="list-group-item list-group-item-action text-white bg-dark"
               href="#pane-2"
               data-toggle="list"
               @click="filterProduct('norway')"
@@ -46,7 +46,7 @@
               Norway
             </a>
             <a
-              class="list-group-item list-group-item-action text-dark"
+              class="list-group-item list-group-item-action text-white bg-dark"
               href="#pane-3"
               data-toggle="list"
               @click="filterProduct('denmark')"
@@ -55,7 +55,7 @@
               Denmark
             </a>
             <a
-              class="list-group-item list-group-item-action text-dark"
+              class="list-group-item list-group-item-action text-white bg-dark"
               href="#pane-4"
               data-toggle="list"
               @click="filterProduct('swedan')"
@@ -66,7 +66,7 @@
         <div class="col-md-12">
           <div class="row mt-4">
             <div class="col-md-4 mb-4" v-for="(item,id) in filterTodos" :key="id">
-              <div class="card border-0 shadow-sm">
+              <div class="card shadow-sm card-bg-color">
                 <div
                   style="height: 150px; background-size: cover; background-position: center"
                   :style="{backgroundImage: `url(${item.imageUrl})`}"
@@ -231,10 +231,10 @@ export default {
       //data設定空值存放抓取的id進行比對
       vm.isLoading = true;
       this.$http.get(url).then(response => {
-        item.num = 1
         $("#productModal").modal("show");
         console.log(response);
         vm.product = response.data.product;
+        vm.product.num = 1
         vm.isLoading = false;
         // vm.status.loadingItem = "";
         //結束後結束loading icon

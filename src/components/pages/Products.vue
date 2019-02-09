@@ -5,9 +5,6 @@
       <div class>
         <button class="btn btn-outline-primary mr-3" @click="openModal(true)">Build a new product</button>
       </div>
-      <!-- <div class="">
-      <button class="btn btn-outline-primary" @click="frontPage()">Front Page</button>
-      </div>-->
     </div>
 
     <!-- 5，點擊事件，傳入參數true為建立新產品觸發行為 -->
@@ -33,6 +30,7 @@
           </td>
           <td>
             <button class="btn btn-outline-primary btn-sm" @click="openModal(false ,item)">edit</button>
+            <button class="btn btn-outline-primary btn-sm" @click="deleteProduct(item)">delete</button>
           </td>
           <!-- 28，點擊事件，傳入參數false為編輯產品觸發行為，傳入item，為原本的物件進行編輯 -->
         </tr>
@@ -308,7 +306,8 @@ export default {
     },
     updateProduct() {
       let api = `${process.env.APIPATH}/api/${
-        process.env.CUSTOMPATH}/admin/product`;
+        process.env.CUSTOMPATH
+      }/admin/product`;
       let httpMethod = "post";
       const vm = this;
       if (!vm.isNew) {
@@ -319,9 +318,9 @@ export default {
         //如果不是新的，進入編輯模式，改為put修改，並且綁上ID確認為哪個物件
         //更新API的方法，get為取得，post為建立，put為修改(後補上ID確認修改項目)
       }
-      this.$http[httpMethod](api, { data: vm.tempProduct }).then(res => {
-        console.log(res.data);
-        if (res.data.success) {
+      this.$http[httpMethod](api, { data: vm.tempProduct }).then(response => {
+        console.log(response.data);
+        if (response.data.success) {
           $("#productModal").modal("hide");
           vm.getProducts();
         } else {
@@ -330,6 +329,16 @@ export default {
           console.log("新增失敗");
         }
       });
+    },
+    deleteProduct(item) {
+      let api = `${process.env.APIPATH}/api/${
+        process.env.CUSTOMPATH
+      }/admin/product/${item.id}`;
+      const vm = this;
+      this.$http.delete(api).then(response => {
+        console.log(response.data);
+      });
+      vm.getProducts();
     },
     //modal編輯行為(傳入參數是否為新的true(建立全新的物件) or false(false傳入本來的item進行編輯)
     openModal(isNew, item) {

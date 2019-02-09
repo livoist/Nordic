@@ -14,18 +14,24 @@
                 <div class="cartList" v-for="item in cart.carts" :key="item.id">
                   <hr>
                   <li class="h3 text-center mb-4">{{ item.product.title }}</li>
-                  <div class="d-flex justify-content-center ml-5">
+                  <div class="d-flex justify-content-start ml-5">
                     <img
                       class="mr-5"
                       style="height: 150px; width: 200px; background-size: cover; background-position: center"
                       :src="item.product.imageUrl"
                       alt
                     >
+                    <div class="d-flex flex-column">
+                    <div class="h6 price-middle-line mb-5">${{ item.product.origin_price }}</div>
+                  <div class="h3 text-danger mt-5">${{ item.product.price }}</div>
+                    </div>
                     <div class="h6 text-primary">{{ item.product.description }}</div>
+                    
                   </div>
-                  <div class="h6 mt-2 price-middle-line">${{ item.product.origin_price }}</div>
-                  <div class="h3 text-danger mt-3">${{ item.product.price }}</div>
-                  <div class="btn btn-primary" @click="removeCartItem(item.id)">Delete</div>
+                  <div class="d-flex flex-column">
+                  <div class="btn btn-primary ml-auto mb-2" @click="removeCartItem(item.id)">Delete</div>
+                  </div>
+                  
                   <div class="h5 text-dark text-right">Num: {{ item.qty }}</div>
                   <div class="h5 text-danger text-right">total: ${{ item.total }}</div>
                   <hr>

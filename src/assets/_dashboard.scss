@@ -342,6 +342,10 @@ $colorPurple: #a340f9;
 .price-middle-line {
   text-decoration: line-through;
 }
+.card-bg-color {
+  background-color: rgba(white,0.7);
+  border: 3px solid rgba(black,0.8);
+}
 
 
 // 9x9 card change background
@@ -428,5 +432,16 @@ $colorPurple: #a340f9;
   &:nth-child(4) {
     background-image: url(https://i.pinimg.com/564x/59/9f/e5/599fe5fa384b8ebc88502944cca01b10.jpg)
   };
+}
+
+//cartlist
+
+.cartList {
+  transition:0.5s;
+  padding: 20px;
+    &:hover {
+      background-color: rgba(gray,0.2);
+    }
+  
 }
 

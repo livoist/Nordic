@@ -2,9 +2,8 @@
 <div>
 <!-- bar -->
 <nav class="navbar fixed-top navbar-expand-lg py-2 bar-fadein">
-  <div class="" @click="goHome()">
-    <i class="fas fa-dice-d20 text-dark fa-2x"></i> 
-    <a class="" href="#" style="text-decoration: none">Nordic</a> 
+  <div>
+    <a class="text-secondary" @click="goHome" href="" style="text-decoration: none">Nordic</a> 
     </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="outline:none">
     <span class="navbar-toggler-icon"></span>
@@ -26,7 +25,7 @@
         <a class="nav-link mr-5 mt-2 navbar-title" href="#">About us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link navbar-title font-weight-bold text-center mt-2 login-link" href="#" style="border:1px solid black" @click="ChangeLogin()">login</a>
+        <a class="nav-link navbar-title font-weight-bold text-center mt-2 login-link" href="#" style="border:1px solid black" @click="ChangeLogin()">Admin</a>
       </li>
     </ul>
   </div>
@@ -85,7 +84,7 @@ export default {
   },
   methods: {
     goHome(){
-      this.$router.push('HomePage')
+      this.$router.push('/HomePage')
     },
     ChangeLogin() {
       this.$router.push('/Login')
