@@ -1,77 +1,104 @@
 <template>
   <div>
-    <div class="d-flex justify-content-center align-items-center flex-column" v-if="cart.carts.length == 0">
-      <div class="h3 p-5">Your cart is empty</div>
+    <div
+      class="d-flex justify-content-center align-items-center flex-column"
+      v-if="cart.carts.length == 0"
+    >
+      <div class="h3 p-5 text-center">Your cart is empty</div>
       <router-link class="btn btn-md btn-dark mb-5" :to="{name:'Shopping'}" exact>Back to pick</router-link>
-      </div>
+    </div>
     <div class="container mt-5" v-else>
-          <div class="row d-flex justify-content-center">
-            <loading :active.sync="isLoading"></loading>
-            <div class="col-8 col-md-10">
-              <!--先把抓出來的response.data.data存入陣列cart
-              ，在用v-for取出data中的carts(cart.carts)，印出的部分再用item下的product取出裡面的值做渲染-->
-              <ul>
-                <div class="cartList" v-for="item in cart.carts" :key="item.id">
-                  <hr>
-                  <li class="h3 text-center mb-4">{{ item.product.title }}</li>
-                  <div class="d-flex justify-content-start ml-5">
-                    <img
-                      class="mr-5"
-                      style="height: 150px; width: 200px; background-size: cover; background-position: center"
-                      :src="item.product.imageUrl"
-                      alt
-                    >
-                    <div class="d-flex flex-column">
-                    <div class="h6 price-middle-line mb-5">${{ item.product.origin_price }}</div>
-                  <div class="h3 text-danger mt-5">${{ item.product.price }}</div>
-                    </div>
-                    <div class="h6 text-primary">{{ item.product.description }}</div>
-                    
-                  </div>
-                  <div class="d-flex flex-column">
-                  <div class="btn btn-primary ml-auto mb-2" @click="removeCartItem(item.id)">Delete</div>
-                  </div>
-                  
-                  <div class="h5 text-dark text-right">Num: {{ item.qty }}</div>
-                  <div class="h5 text-danger text-right">total: ${{ item.total }}</div>
-                  <hr>
-                </div>
-                <!-- 優惠券輸入 -->
-                <div class="input-group mt-3 input-group-sm">
-                  <input type="text" class="form-control" placeholder="Code" v-model="coupon_code">
-                  <div class="input-group-append">
-                    <button
-                      class="btn btn-outline-secondary"
-                      type="button"
-                      @click="addCouponCode"
-                    >Discount code</button>
+      <div class="row d-flex justify-content-center">
+        <loading :active.sync="isLoading"></loading>
+        <div class="col-12 col-md-8">
+          <!--先把抓出來的response.data.data存入陣列cart
+          ，在用v-for取出data中的carts(cart.carts)，印出的部分再用item下的product取出裡面的值做渲染-->
+          <ul>
+            <div
+              class="cart-card-border cartList position-relative mb-3"
+              v-for="item in cart.carts"
+              :key="item.id"
+            >
+              <div v-if="item.product.category == 'iceland'">
+                <div class="icon-box-2"></div>
+                <div class="icon-box">
+                  <div class="d-flex justify-content-center align-items-center text-bold">
+                    <div class="text-white">Hot sale</div>
                   </div>
                 </div>
-                <!-- 折數金額顯示判斷 -->
-                <div class="mt-3">
-                  <div
-                    class="h3 text-right text-success mt-2s"
-                    v-if="cart.total!=cart.final_total"
-                  >- {{ Math.floor((cart.final_total/cart.total)*100) }}% Total: ${{ cart.final_total }}</div>
-                  <div class="h5 text-dark text-right" v-else>Total: ${{ cart.total }}</div>
-                </div>
-                <!--  -->
-              </ul>
+              </div>
+              <hr>
+              <li class="h3 text-center mb-4">{{ item.product.title }}</li>
+              <div class="d-flex justify-content-start ml-5">
+                <img
+                  class="mr-5"
+                  style="height:150px; width:120px; background-size: cover; background-position: center"
+                  :src="item.product.imageUrl"
+                  alt
+                >
+                <div class="d-flex flex-column"></div>
+                <div class="h6 text-primary">{{ item.product.description }}</div>
+              </div>
+              <div class="d-flex flex-column">
+                <div class="h6 price-middle-line ml-5 my-2">${{ item.product.origin_price }}</div>
+                <div class="h3 text-danger ml-5 mt-2">${{ item.product.price }}</div>
+              </div>
+
+              <div class="d-flex flex-column">
+                <div class="h5 text-dark text-right">Num: {{ item.qty }}</div>
+                <div class="h5 text-danger text-right">total: ${{ item.total }}</div>
+                <div
+                  class="btn btn-outline-dark btn-sm my-2"
+                  @click="removeCartItem(item.id)"
+                >Delete</div>
+              </div>
+
+              <hr>
             </div>
-          </div>
-          <div class="footer text-right my-5">
-            <button class="btn btn-outline-dark" @click="goPay()">Go pay</button>
+            <!-- 優惠券輸入 -->
+            <div class="input-group mt-3 input-group-sm">
+              <input type="text" class="form-control" placeholder="Code" v-model="coupon_code">
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  @click="addCouponCode"
+                >Discount code</button>
+              </div>
+            </div>
+
+            <!-- 折數金額顯示判斷 -->
+            <div class="mt-3">
+              <div
+                class="h3 text-right text-success mt-2s"
+                v-if="cart.total!=cart.final_total"
+              >- {{ Math.floor((cart.final_total/cart.total)*100) }}% Total: ${{ cart.final_total }}</div>
+              <div class="h5 text-dark text-right" v-else>Total: ${{ cart.total }}</div>
+            </div>
+            <!--  -->
+          </ul>
+          <div class="d-flex flex-column justify-content-center align-items-center font-weight-bold" style="border: 1px solid black">
+            coupon code:
+            <div>code: 30%</div>
+            <div>code: 50%</div>
+            <div>code: 70%</div>
           </div>
         </div>
-        <hr>
-<div class="text-center p-4">©2019 Widget All Reserved 
-| Design by Ben</div>
       </div>
+      <div class="footer text-right my-5">
+        <button class="btn btn-outline-dark" @click="goPay()">Go pay</button>
+      </div>
+    </div>
+    <hr>
+    <div class="text-center p-4">
+      ©2019 All right Reserved
+      | Design by Ben
+    </div>
+  </div>
 </template>
 
 <script>
-import $ from 'jquery';
-
+import $ from "jquery";
 
 export default {
   data() {
@@ -80,8 +107,8 @@ export default {
         carts: []
       },
       coupon_code: "",
-      isLoading: false,
-    }
+      isLoading: false
+    };
   },
   methods: {
     //取得購物車資訊
@@ -94,7 +121,7 @@ export default {
         console.log(res);
         vm.isLoading = false;
         vm.cart = res.data.data;
-        console.log(res.data.data)
+        console.log(res.data.data);
         //定義陣列Cart，並把更新後的Data傳入Cart
         //全畫面loading icon關閉
       });
@@ -133,7 +160,5 @@ export default {
     this.getCart();
     this.addCouponCode();
   }
-}
-
-
+};
 </script>

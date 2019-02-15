@@ -1,29 +1,31 @@
 <template>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
   <div class="allweb">
-      <HomeNavbar></HomeNavbar>
-      <Carousel></Carousel>
+    <HomeNavbar></HomeNavbar>
+    <Carousel></Carousel>
     <main>
-      <router-view></router-view>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </main>
   </div>
-  
-  
+</body>
+</html>
 </template>
 
-<style>
-.allweb {
-  font-weight: 500;
-  font-family: Didot, serif;
-  line-height: 1.5em;
-}
-</style>
 
 
 <script>
-
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
 
 import $ from "jquery";
 import HomeNavbar from "./HomeNavbar";
@@ -31,16 +33,12 @@ import Carousel from "./Carousel";
 
 export default {
   data() {
-    return {
-
-    }
+    return {};
   },
   components: {
     Carousel,
     HomeNavbar
   },
-  methods: {
-
-  }
+  methods: {}
 };
 </script>

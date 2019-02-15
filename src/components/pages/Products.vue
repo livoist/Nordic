@@ -9,7 +9,7 @@
 
     <!-- 5，點擊事件，傳入參數true為建立新產品觸發行為 -->
     <table class="table mt-4">
-      <thead>
+      <thead class="bg-dark text-white">
         <th width="120">Types</th>
         <th width="180">Name</th>
         <th width="auto" class="text-right">Original price</th>
@@ -29,8 +29,8 @@
             <!-- 24，25，判斷式，判斷是否為不能點擊狀態 -->
           </td>
           <td>
-            <button class="btn btn-outline-primary btn-sm" @click="openModal(false ,item)">edit</button>
-            <button class="btn btn-outline-primary btn-sm" @click="deleteProduct(item)">delete</button>
+            <button class="btn btn-outline-primary btn-sm my-1" @click="openModal(false ,item)">edit</button>
+            <button class="btn btn-outline-primary btn-sm my-1" @click="deleteProduct(item)">delete</button>
           </td>
           <!-- 28，點擊事件，傳入參數false為編輯產品觸發行為，傳入item，為原本的物件進行編輯 -->
         </tr>
@@ -314,7 +314,7 @@ export default {
         api = `${process.env.APIPATH}/api/${
           process.env.CUSTOMPATH
         }/admin/product/${vm.tempProduct.id}`;
-        let httpMethod = "put";
+        httpMethod = "put";
         //如果不是新的，進入編輯模式，改為put修改，並且綁上ID確認為哪個物件
         //更新API的方法，get為取得，post為建立，put為修改(後補上ID確認修改項目)
       }

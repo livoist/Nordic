@@ -93,10 +93,17 @@ body {
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 
 
-
+// login-bg-color
+.login-bg-color {
+  background: rgb(171, 212, 238);
+}
 
 // HomePage-All
-
+.allweb {
+  font-weight: 500;
+  font-family: Didot, serif;
+  line-height: 1.5em;
+}
 
 //mixin-scope lighten-color-box(row)
 $colorGreen: #00ffbb;
@@ -105,54 +112,52 @@ $colorYellow: #f9d625;
 $colorBlue: #315cf7;
 $colorPurple: #a340f9;
 @mixin setBlockColor($color) {
-  box-shadow: 0px 0px 35px rgba($color,0.2);
-  background-color: transparent;
+  box-shadow: 0px 0px 35px rgba($color,0.5);
+  background-color: rgba($color,0.3);
   border: 1px solid lighten($color,5);
+  transition: 0.5s;
+  background-color: $color;
+  box-shadow: 0px 0px 45px $color;
   cursor: pointer;
-    &:hover {
-        background-color: rgba($color,0.3);
-        box-shadow: 0px 0px 35px rgba($color,0.5);
-        &:nth-child(1){
-          &:before {
-            content: 'Iceland';
-            opacity: 0.7;
-            font-weight: bold;
-          }
-        };
-        &:nth-child(2){
-          &:before {
-            content: 'Norway';
-            opacity: 0.7;
-            font-weight: bold;
-          }
-        };
-        &:nth-child(3){
-          &:before {
-            content: 'Finland';
-            opacity: 0.7;
-            font-weight: bold;
-          }
-        };
-        &:nth-child(4){
-          &:before {
-            content: 'Danmark';
-            opacity: 0.7;
-            font-weight: bold;
-          }
-        };
-        &:nth-child(5){
-          &:before {
-            content: 'Sweden';
-            opacity: 0.7;
-            font-weight: bold;
-          }
-        }
+  &:nth-child(1){
+    &:before {
+      content: 'Iceland';
+      opacity: 0.7;
+      font-weight: bold;
     }
-    &:active {
-        transition: 0s;
-        background-color: $color;
-        box-shadow: 0px 0px 45px $color;
+  };
+  &:nth-child(2){
+    &:before {
+      content: 'Norway';
+      opacity: 0.7;
+      font-weight: bold;
     }
+  };
+  &:nth-child(3){
+    &:before {
+      content: 'Finland';
+      opacity: 0.7;
+      font-weight: bold;
+    }
+  };
+  &:nth-child(4){
+    &:before {
+      content: 'Danmark';
+      opacity: 0.7;
+      font-weight: bold;
+    }
+  };
+  &:nth-child(5){
+    &:before {
+      content: 'Sweden';
+      opacity: 0.7;
+      font-weight: bold;
+    }
+  }
+  &:hover {
+    background-color: transparent;
+    color: white;
+  }
 }
 
 @mixin size($w,$h:$w) {
@@ -210,7 +215,7 @@ $colorPurple: #a340f9;
 
 
 .Parallax-Scrolling {
-  background-image: url(https://images.unsplash.com/photo-1489782419474-4d4221dc5b10?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+  background-image: url(https://images.unsplash.com/photo-1528419452013-6f87ceb89925?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80);
   overflow: hidden;
   background-size: cover;
   background-position: center center;
@@ -294,6 +299,12 @@ $colorPurple: #a340f9;
   transform: translateX(-100px);
   transition-delay: 1.5s;
 }
+.animated-5 {
+  opacity: 0;
+  transition: 2s;
+  transform: translateX(-100px);
+  transition-delay: 1s;
+}
 .fadeIn {
   opacity: 1;
   transform: translateY(0px);
@@ -301,21 +312,18 @@ $colorPurple: #a340f9;
 .bg-image {
   background-image:url(https://images.unsplash.com/photo-1485646485012-f09e6a19d9c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)
 }
-// .bg-image-2 {
-//   background-image:url(https://images.unsplash.com/photo-1488804297330-2b6016fe2f45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)
-// }
-// .bg-image-3 {
-//   background-image:url(https://images.unsplash.com/photo-1497138169556-ba5743a6031c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)
-// }
-// .bg-image-4 {
-//   background-image:url(https://images.unsplash.com/photo-1465757893864-947a0f770df9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)
-// }
-// .bg-image-5 {
-//   background-image:url(https://images.unsplash.com/photo-1464550838636-1a3496df938b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=80)
-// }
+
 
 //shopping page
+.card-hover-move {
+  transition: 0.5s;
+  &:hover {
+    transform: translateY(-5px);
+    background-color: white;
+  }
+}
 
+  
 .cartList {
   list-style: none;
 }
@@ -441,7 +449,89 @@ $colorPurple: #a340f9;
   padding: 20px;
     &:hover {
       background-color: rgba(gray,0.2);
+      transform: translateY(-5px);
     }
-  
+}
+.cart-card-border {
+  border: 3px solid black;
 }
 
+// hot-sale-icon box
+@mixin saleIcon($w,$h,$color,$t,$r,$br) {
+  width: $w;
+  height: $h;
+  border: 1px solid black;
+  border-radius: $br;
+  background-color: $color;
+  position: absolute;
+  right: $r;
+  top: $t;
+  transform: rotate(40deg);
+}
+.icon-box {
+  @include saleIcon(100px,25px,rgba(#dd3939,0.9),68px,25px,none);
+}
+.icon-box-2 {
+  @include saleIcon(50px,50px,rgba(black,0.8),58px,48px,50%);
+}
+.shopping-icon-box {
+  @include saleIcon(100px,25px,rgba(#dd3939,0.9),5px,-38px,none);
+}
+.shopping-icon-box-2 {
+  @include saleIcon(50px,50px,rgba(rgb(26, 26, 26),1),-10px,-10px,50%);
+}
+.position-relative {
+  position: relative;
+}
+
+
+// text-color
+.row1-text-color {
+  color: rgba(white,0.8);
+}
+// text-height
+.line-finishPage-height {
+  line-height: 2em;
+}
+
+//row 5col 7col box
+.bg-image-1 {
+  background-image: url(https://images.unsplash.com/photo-1465353471565-b77e538f34c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+}
+.bg-image-2 {
+  background-image: url(https://images.unsplash.com/photo-1488887935090-66c640f39ded?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2389&q=80);
+}
+//car、house、food-box
+.icon-scale {
+  transition: 3s;
+}
+.transparent-black-box {
+  background-color: rgba(black,0.7);
+  color: white;
+  transition: 1.2s;
+  &:hover {
+    background-color: rgb(214, 189, 79);
+    transform: rotate3d(1,1,1,360deg);  
+    color: rgba(black,0.6);
+    font-weight: bold;
+    .icon-scale {
+      transform: scale(2);
+    }
+  }
+}
+
+
+//router fade in scope
+//--------------------
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+//----------------------

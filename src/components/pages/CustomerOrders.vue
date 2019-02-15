@@ -225,34 +225,6 @@
 .fixed-control:hover {
   opacity: 1;
 }
-/* .control {
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(10deg, #111 0%, #111 50%, transparent 100%);
-  box-sizing: border-box;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.5s;
-}
-.control.isCartOpen {
-  opacity: 1;
-  pointer-events: initial;
-}
-.panel {
-  width: 70%;
-}
-.panel ul {
-  list-style: none;
-}
-.panel ul li {
-  transition: 0.5s;
-}
-.panel ul li:hover {
-  background-color: rgba(white, 0.25);
-  cursor: pointer;
-  border-radius: 5px;
-  transform: translateY(-10px);
-} */
 </style>
 
 <script>

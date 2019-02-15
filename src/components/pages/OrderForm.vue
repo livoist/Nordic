@@ -3,7 +3,7 @@
   <div class="my-5 row justify-content-center">
     <div class="col-8">
   <div class="card mt-4">
-    <div class="card-header bg-light text-center">Personal Information
+    <div class="card-header bg-dark text-center text-white font-weight-bold">Personal Information
 </div>
     <div class="card-body">
       <!-- 點擊事件createOrder -->
@@ -88,7 +88,7 @@
           </span>
         </div>
         <div class="text-right">
-          <button class="btn btn-danger">Send List</button>
+          <button class="btn btn-danger">Send</button>
         </div>
         </div>
         </div>
@@ -98,7 +98,7 @@
   </div>
   </div>
   <hr>
-  <div class="text-center p-4">©2019 Widget All Reserved 
+  <div class="text-center p-4">©2019 All right Reserved 
 | Design by Ben</div>
   <!-- <div class="row">
     <div class="col-12 bg-dark" style="height:80px">

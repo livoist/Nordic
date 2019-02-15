@@ -2,12 +2,12 @@
 <html>
   <body>
     <div class="" style="border: 3px solid black">
-      <form class="form-signin bg-light" @submit.prevent="signin">
-        <div class="text-center mb-5">
-          <i class="fas fa-dice-d20 text-black fa-2x"></i>
-          <a class href.prevent="#" style="text-decoration: none">Nordic</a>
+      <form class="form-signin login-bg-color" @submit.prevent="signin">
+        <div class="text-center mb-5 d-flex flex-column ">
+          <div> <img src="https://upload.cc/i1/2019/02/14/oNg2Od.png" alt=""></div>
+          <a class="font-weight-bold" href.prevent="#" style="text-decoration: none">Nordic</a>
         </div>
-        <h1 class="h5 mb-3 font-weight-normal text-center">Login</h1>
+        <h1 class="h5 mb-3 font-weight-normal text-center text-white">Login</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input
           v-model="user.username"
@@ -32,7 +32,7 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
         <div class="d-flex justify-content-center mt-5">
           <div class="icon-border p-1 mx-2">
             <i class="fab fa-facebook-f">
@@ -56,7 +56,7 @@
             </i>
           </div>
         </div>
-        <p class="pt-3 mt-5 text-muted year-fixed text-center" style="font-size: 13px">&copy;2019 Account Login Widget All Reserved <br> | Design by Ben</p>
+        <p class="pt-3 mt-5 text-white year-fixed text-center" style="font-size: 13px">&copy;2019 Account Login Widget All right Reserved <br> | Design by Ben</p>
       </form>
     </div>
   </body>

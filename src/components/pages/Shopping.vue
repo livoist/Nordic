@@ -1,5 +1,5 @@
 <template>
-  <div class="" style="background-color: #424040">
+  <div class style="background-color: #424040">
     <!-- cartIcon -->
     <div class="fixed-control" @click="cartPage()">
       <i class="fas fa-shopping-cart my-3 fa-2x text-white" style="z-index:100">
@@ -66,11 +66,20 @@
         <div class="col-md-12">
           <div class="row mt-4">
             <div class="col-md-4 mb-4" v-for="(item,id) in filterTodos" :key="id">
-              <div class="card shadow-sm card-bg-color">
+              <div class="card shadow-sm card-bg-color card-hover-move">
                 <div
                   style="height: 150px; background-size: cover; background-position: center"
                   :style="{backgroundImage: `url(${item.imageUrl})`}"
-                ></div>
+                >
+                  <div v-if="item.category == 'iceland'">
+                    <div class="shopping-icon-box-2"></div>
+                    <div class="shopping-icon-box">
+                      <div class="d-flex justify-content-center align-items-center text-bold">
+                        <div class="text-white font-weight-bold">Hot sale</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="card-body">
                   <span class="badge badge-dark float-right ml-2">{{ item.category }}</span>
                   <h5 class="card-title">
@@ -142,7 +151,7 @@
                       <div class="h4 text-danger" v-if="product.price">Sale ${{ product.price }}</div>
                     </div>
                     <select name class="form-content mt-3" v-model="product.num">
-                      <option :value="num" v-for="num in 10" :key="num"> {{ num }} </option>
+                      <option :value="num" v-for="num in 10" :key="num">{{ num }}</option>
                     </select>
                   </div>
                   <div class="modal-footer">
@@ -190,7 +199,7 @@ export default {
       isLoading: false,
       // isCartOpen: false,
       // totalShow: false,
-      coupon_code: "",
+      coupon_code: ""
       // addSuccess: {}
     };
   },
@@ -215,7 +224,7 @@ export default {
       if (type == "") {
         vm.filterTodos = vm.products;
       } else {
-        newAry = vm.products.filter(function(product){
+        newAry = vm.products.filter(function(product) {
           return product.category == type;
         });
         vm.filterTodos = newAry;
@@ -234,14 +243,14 @@ export default {
         $("#productModal").modal("show");
         console.log(response);
         vm.product = response.data.product;
-        vm.product.num = 1
+        vm.product.num = 1;
         vm.isLoading = false;
         // vm.status.loadingItem = "";
         //結束後結束loading icon
       });
     },
     //商品加入購物車行為
-    addtoCart(item,id, qty = 1) {
+    addtoCart(item, id, qty = 1) {
       const vm = this;
       const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
       vm.status.loadingItem = id;
@@ -271,8 +280,8 @@ export default {
       });
     },
     cartPage() {
-      this.$router.push("/CartList")
-    },
+      this.$router.push("/CartList");
+    }
   },
   computed: {},
 

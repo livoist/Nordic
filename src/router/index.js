@@ -17,6 +17,7 @@ import OrderForm from '@/components/pages/OrderForm'
 import CustomerCheckout from '@/components/pages/CustomerCheckout'
 import CustomerOrderList from '@/components/pages/CustomerOrderList'
 import CartList from '@/components/pages/CartList'
+import FinishPage from '@/components/pages/FinishPage'
 
 
 
@@ -40,7 +41,7 @@ export default new Router({
     },
     {
       path: '/admin',
-      name: 'mainpa',
+      name: 'Dashboard',
       component: Dashboard,
       children: [
         {
@@ -104,6 +105,11 @@ export default new Router({
           path: 'CartList',
           name: 'CartList',
           component: CartList,
+        },
+        {
+          path: 'FinishPage',
+          name: 'FinishPage',
+          component: FinishPage,
         },
       ]
     },

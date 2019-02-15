@@ -3,24 +3,25 @@
 <template>
   <!-- import!!!  v-for迴圈在印出多個物件時使用，但在created取得資料時，就可以從資料結構裡取出在頁面上做渲染，不用跑v-for  -->
   <div class="container">
+    <div class="card my-3">
   <div class="row justify-content-center">
-    <form class="col-10 col-sm-8 col-md-6" @submit.prevent="payOrder">
-      <div class="mt-5 text-center h5">Order list</div>
+    <form class="col-10 col-sm-8 col-md-6 font-weight-bold" @submit.prevent="payOrder">
+      <div class="mt-5 text-center h3 font-weight-bold">Order List</div>
       <table class="table mt-5">
         <thead class="thead-dark">
           <tr>
-            <th colspan="1">#</th>
-            <th colspan="5">Product</th>
+            
+            <th colspan="6">Product</th>
             <th class="text-right" colspan="3">Num</th>
             <th class="text-right" colspan="3">Price</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="item in order.products" :key="item.id">
-            <th colspan="1" >  </th>
-            <td colspan="5">{{ item.product.title }}</td>
-            <td class="text-right" colspan="2">{{ item.qty }}/{{ item.product.unit }}</td>
-            <td class="text-right" colspan="4">{{ item.final_total }}</td>
+            
+            <td colspan="6">{{ item.product.title }}</td>
+            <td class="text-right" colspan="3">{{ item.qty }}/{{ item.product.unit }}</td>
+            <td class="text-right" colspan="3">{{ item.final_total }}</td>
           </tr>
         </tbody>
         <tfoot>
@@ -41,23 +42,23 @@
         </thead>
         <tbody>
           <tr>
-            <th>Email</th>
+            <th>Email：</th>
             <td>{{ order.user.email }}</td>
           </tr>
           <tr>
-            <th>Name</th>
+            <th>Name：</th>
             <td>{{ order.user.name }}</td>
           </tr>
           <tr>
-            <th>Tel</th>
+            <th>Tel：</th>
             <td>{{ order.user.tel }}</td>
           </tr>
           <tr>
-            <th>Address</th>
+            <th>Address：</th>
             <td>{{ order.user.address }}</td>
           </tr>
           <tr>
-            <th>Precautions</th>
+            <th>Precautions：</th>
             <td>{{ order.message }}</td>
           </tr>
         </tbody>
@@ -76,10 +77,11 @@
       </div>
     </form>
   </div>
+  </div>
   <div class="mt-5 pt-5">
   <hr>
   </div>
-  <div class="text-center p-4">©2019 Account Login Widget All Reserved 
+  <div class="text-center p-4">©2019 All Reserved 
 | Design by Ben</div>
   </div>
   
@@ -118,11 +120,14 @@ export default {
       this.$http.post(api).then(res => {
         console.log(res);
         if (res.data.success) {
+          setTimeout(() => {
+            this.$router.push("/FinishPage")
+          },4000)
           vm.getOrder();
         }
         vm.isLoading = false;
       });
-    }
+    },
   },
   created() {
     this.orderId = this.$route.params.orderId;

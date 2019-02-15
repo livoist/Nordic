@@ -3,17 +3,16 @@
 <!-- bar -->
 <nav class="navbar fixed-top navbar-expand-lg py-2 bar-fadein">
   <div>
-    <a class="text-secondary" @click="goHome" href="" style="text-decoration: none">Nordic</a> 
+    <a class="h5 text-white font-weight-bold" @click="goHome" href="#" style="text-decoration: none">Nordic</a> 
     </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="outline:none">
-    <span class="navbar-toggler-icon"></span>
+    <span class=""><i class="fas fa-angle-double-down text-white"></i></span>
   </button>
   
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto h5">
       <li class="nav-item">
         <a class="nav-link mr-5 mt-2 navbar-title" href="#">Travel</a>
-
       </li>
       <li class="nav-item">
         <a class="nav-link mr-5 mt-2 navbar-title" href="#">Traffic</a>
@@ -36,15 +35,20 @@
 </template>
 
 <style>
+.navbar-title {
+  transition: all 0.5s;
+}
 .navbar-title:hover {
-  border-bottom: 1px solid #000;
+  opacity: 0.7;
+  color: #fff;
+  border-bottom: 1px solid #fff;
 }
 .login-link {
   transition: 0.5s;
 }
 .login-link:hover {
-  color: white!important;
-  background-color: black;
+  color: black!important;
+  background-color: white;
 }
 .dropdown {
   display: none;
@@ -67,9 +71,9 @@ $(document).ready(function(){
     let windowHeight = $(window).height();
     console.log(scrollPos)
     if (scrollPos > 50) {
-      $(".bar-fadein").css('background-color','#edeff2')
+      $(".bar-fadein").css('background-color','#282727')
     }else if (scrollPos < 50) {
-      $(".bar-fadein").css({'background-color':'transparent','transition':'1s'})
+      $(".bar-fadein").css({'background-color':'transparent','transition':'0.5s'})
     }
   })
 })

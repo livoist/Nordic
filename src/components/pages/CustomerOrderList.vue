@@ -6,7 +6,7 @@
 
     <!-- 5，點擊事件，傳入參數true為建立新產品觸發行為 -->
     <table class="table mt-4">
-      <thead>
+      <thead class="bg-dark text-white">
         <th width="120">訂單編號</th>
         <th width="180">訂購人姓名</th>
         <th width="auto" class="text-right">注意事項</th>
@@ -26,7 +26,7 @@
             @click="getCustomer(item)"
           >訂購人詳細資訊</td>
           <td>
-            <div class="btn btn-sm btn-info" @click="opencustomerModal(item)">修改訂單</div>
+            <div class="btn btn-sm btn-info" @click="openCustomerModal(item)">修改訂單</div>
             <!-- <div class="btn btn-sm btn-danger" @click="deleteOrder(id)">刪除訂單</div> -->
           </td>
         </tr>
@@ -226,7 +226,7 @@ export default {
     return {
       customerList: [],
       newList: {
-        user: {}
+        user: []
       },
       //起始資料值
       pagination: {},
@@ -256,7 +256,7 @@ export default {
       });
     },
     updateCustomerList() {
-      let api = `${process.env.APIPATH}/api/${
+      const api = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
       }/admin/order/${vm.newList.id}`;
       const vm = this;
@@ -275,13 +275,13 @@ export default {
         }
       });
     },
-    getCustomer(id) {
-      let api = `${process.env.APIPATH}/api/${
-        process.env.CUSTOMPATH
-      }/admin/order/${id}`;
-      const vm = this;
-      this.$http.get(api).then(res => {});
-    },
+    // getCustomer(id) {
+    //   let api = `${process.env.APIPATH}/api/${
+    //     process.env.CUSTOMPATH
+    //   }/admin/order/${id}`;
+    //   const vm = this;
+    //   this.$http.get(api).then(res => {});
+    // },
     // deleteOrder(id) {
     //   let api =`${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/admin/order/${id}`;
     //   const vm = this;
@@ -289,7 +289,7 @@ export default {
     //     vm.getCustomerList();
     //   })
     // },
-    opencustomerModal(item) {
+    openCustomerModal(item) {
       this.newList = item;
       $("#customerModal").modal("show");
     },

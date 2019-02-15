@@ -12,7 +12,7 @@
           style="background-image:url(https://images.unsplash.com/photo-1485982353291-4f167f9dee32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"
         >
           <div class="carousel-caption d-md-block">
-            <router-link class="btn btn-md btn-dark mb-5 " :to="{name:'Shopping'}" exact>Go Travel</router-link>
+            <router-link class="btn btn-md btn-outline-light mb-5 " :to="{name:'Shopping'}" exact>Go Travel</router-link>
             <div class="carousel-font-box">
               <small>iceland</small>
               <h5>Road Travel</h5>
@@ -25,7 +25,7 @@
           style="background-image:url(https://images.unsplash.com/uploads/141150083822630dd983b/730944d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80)"
         >
           <div class="carousel-caption d-md-block">
-            <router-link class="btn btn-lg btn-dark mb-5 " :to="{name:'Shopping'}" exact>Go Travel</router-link>
+            <router-link class="btn btn-md btn-outline-light mb-5 " :to="{name:'Shopping'}" exact>Go Travel</router-link>
             <div class="carousel-font-box">
               <small>iceland</small>
               <h5>Sheep</h5>
@@ -38,7 +38,7 @@
           style="background-image:url(https://images.unsplash.com/photo-1488415032361-b7e238421f1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80)"
         >
           <div class="carousel-caption d-md-block">
-            <router-link class="btn btn-lg btn-dark mb-5 " :to="{name:'Shopping'}" exact>Go Travel</router-link>
+            <router-link class="btn btn-md btn-outline-light mb-5 " :to="{name:'Shopping'}" exact>Go Travel</router-link>
             <div class="carousel-font-box">
               <small>norway</small>
               <h5>aurora</h5>
