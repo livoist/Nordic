@@ -73,11 +73,6 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'Dashboard',
-      component: Dashboard,
-    },
-    {
-      path: '/',
       name: 'Home',
       component: Home,
       children: [

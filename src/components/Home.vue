@@ -39,6 +39,9 @@ export default {
     Carousel,
     HomeNavbar
   },
-  methods: {}
+  methods: {},
+  created() {
+    this.$router.push('/HomePage')
+  }
 };
 </script>
