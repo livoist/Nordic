@@ -1,30 +1,29 @@
-# vue-ecom-web
+# 北歐旅遊網站(Nordic)
 
-> A Vue.js project
 
-## Build Setup
+喜愛旅遊，目標是把北歐走完，所有就把第一個作品用北歐為主題製作
+# 素材來源：
+unsplash and pinterest(真是佛心的網站)
 
-``` bash
-# install dependencies
-npm install
+# 網站內容
+網站所有內容僅為練習用，不作任何商業用途
 
-# serve with hot reload at localhost:8080
-npm run dev
+# 功能
+本作品主要功能有：
+前台：商品展示、購物車、商品下單、優惠券使用、訂單列表、訂單結帳
+後台：商品管理、客戶訂單查詢、修改、優惠券新增、修改
 
-# build for production with minification
-npm run build
+# 使用技術
+Vue Cli 2
+Vue Router
+Vue Component
+JQuery
+Bootstrap
 
-# build for production and view the bundle analyzer report
-npm run build --report
+其他插件
+Vue-loading-overlay
+VeeValidate
+vue-axios 
 
-# run unit tests
-npm run unit
 
-# run e2e tests
-npm run e2e
 
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
