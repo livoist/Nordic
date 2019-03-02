@@ -20,7 +20,7 @@ Vue Component<br>
 JQuery<br>
 Bootstrap
 
-其他插件<br>
+## 其他插件<br>
 Vue-loading-overlay<br>
 VeeValidate<br>
 vue-axios <br>
