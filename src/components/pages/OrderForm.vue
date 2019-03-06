@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <div class="my-5 row justify-content-center">
-    <div class="col-8">
+    <div class="col-10 col-md-6">
   <div class="card mt-4">
     <div class="card-header bg-dark text-center text-white font-weight-bold">Personal Information
 </div>
@@ -23,7 +23,7 @@
             v-validate="'required|email'"
           >
           <span class="text-danger" v-if="errors.has('email')">{{ errors.first('email') }}</span>
-          <!-- Vue官方驗證欄位(Email語法) 14~16 v-if做判斷，錯誤做顯示，並以Name做綁定和v-validate="'required|email'"-->
+          <!-- Vue官方驗證欄位(Email語法) v-if做判斷，錯誤做顯示，並以Name做綁定和v-validate="'required|email'"-->
         </div>
 
         <div class="form-group">

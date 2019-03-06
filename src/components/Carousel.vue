@@ -5,18 +5,20 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
       </ol>
       <div class="carousel-inner">
         <div
-          class="carousel-item active bg-cover car-item"
-          style="background-image:url(https://images.unsplash.com/photo-1485982353291-4f167f9dee32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"
+          class="carousel-item active bg-cover car-item p-5"
+          style="background-image:url(https://images.unsplash.com/photo-1491446559770-3fc03a481cdf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"
         >
           <div class="carousel-caption d-md-block">
-            <router-link class="btn btn-md btn-outline-light mb-5 " :to="{name:'Shopping'}" exact>Go Travel</router-link>
-            <div class="carousel-font-box">
+            <router-link class="btn btn-md btn-outline-light mb-5 font-show" :to="{name:'Shopping'}" exact>Go Travel</router-link>
+            <div class="carousel-font-box pb-5">
               <small>iceland</small>
-              <h5>Road Travel</h5>
-              <p>As you may or may not have noticed there wasn't a grocery haul last week.</p>
+              <div class="h5 font-weight-bold">Road Travel</div>
+              <p>Let's go,your endless road trip.</p>
             </div>
           </div>
         </div>
@@ -25,29 +27,56 @@
           style="background-image:url(https://images.unsplash.com/uploads/141150083822630dd983b/730944d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80)"
         >
           <div class="carousel-caption d-md-block">
-            <router-link class="btn btn-md btn-outline-light mb-5 " :to="{name:'Shopping'}" exact>Go Travel</router-link>
-            <div class="carousel-font-box">
+            <router-link class="btn btn-md btn-outline-light mb-5 font-show" :to="{name:'Shopping'}" exact>Go Travel</router-link>
+            <div class="carousel-font-box pb-5">
               <small>iceland</small>
-              <h5>Sheep</h5>
-              <p>I ended up going out with friends, scavenging around my apartment for food</p>
+              <div class="h5 font-weight-bold">Sheep</div>
+              <p>Cute sheep is always looking at you.</p>
             </div>
           </div>
         </div>
         <div
           class="carousel-item bg-cover car-item"
-          style="background-image:url(https://images.unsplash.com/photo-1488415032361-b7e238421f1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80)"
+          style="background-image:url(https://images.unsplash.com/photo-1539110306704-fabc10bdcad9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80)"
         >
           <div class="carousel-caption d-md-block">
-            <router-link class="btn btn-md btn-outline-light mb-5 " :to="{name:'Shopping'}" exact>Go Travel</router-link>
-            <div class="carousel-font-box">
+            <router-link class="btn btn-md btn-outline-light mb-5 font-show" :to="{name:'Shopping'}" exact>Go Travel</router-link>
+            <div class="carousel-font-box pb-5">
               <small>norway</small>
-              <h5>aurora</h5>
-              <p>I was still within my budget even if it wasn't the most balanced of weekly meals</p>
+              <div class="h5 font-weight-bold">Aurora</div>
+              <p>That is the light, waiting for you to see.</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="carousel-item bg-cover car-item"
+          style="background-image:url(https://images.unsplash.com/photo-1488804297330-2b6016fe2f45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)"
+        >
+          <div class="carousel-caption d-md-block">
+            <router-link class="btn btn-md btn-outline-dark mb-5 font-show" :to="{name:'Shopping'}" exact>Go Travel</router-link>
+            <div class="carousel-font-box pb-5">
+              <small>norway</small>
+              <div class="h5 font-weight-bold">Fox</div>
+              <p>Come play with me
+.</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="carousel-item bg-cover car-item"
+          style="background-image:url(https://images.unsplash.com/photo-1541620158600-cb5a226ca9f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"
+        >
+          <div class="carousel-caption d-md-block">
+            <router-link class="btn btn-md btn-outline-dark mb-5 font-show" :to="{name:'Shopping'}" exact>Go Travel</router-link>
+            <div class="carousel-font-box pb-5">
+              <small>norway</small>
+              <div class="h5 font-weight-bold">Road Travel</div>
+              <p>Let's go,your endless road trip.</p>
             </div>
           </div>
         </div>
       </div>
-      <a
+      <!-- <a
         class="carousel-control-prev"
         href="#carouselExampleIndicators"
         role="button"
@@ -64,21 +93,18 @@
       >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-      </a>
+      </a> -->
     </div>
   </div>
 </template>
 
 <style>
 .carousel-font-box {
-  opacity: 1;
-  transition: all 2s;
-  padding: 15px;
-  background-color: rgba(0,0,0, 0.5);
+  opacity: 0;
+  transition: 0.5s
 }
-.carousel-font-box:hover {
-  transform: scale(1.1);
-  color: rgba(168, 248, 248, 0.959);
+.font-show:hover +.carousel-font-box {
+  opacity: 1;
 }
 .car-item {
   height: 450px;

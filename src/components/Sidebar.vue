@@ -1,6 +1,4 @@
 <template>
-
-
   <nav class="col-12 col-md-2 d-none d-md-block bg-light sidebar">
     <div class="sidebar-sticky">
       <h6
@@ -14,17 +12,17 @@
       <ul class="nav flex-column mb-2">
         <li class="nav-item">
           <router-link class="nav-link" to="/admin/products">
-          Product List
+          <i class="mr-2 fa-2x fas fa-clipboard-list"></i>Product List
           </router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/admin/coupons">
-          Coupons
+          <i class="mr-2 fa-2x fas fa-ticket-alt"></i>Coupons
           </router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/admin/customerorderlist">
-          CustomerOrderList
+          <i class="mr-2 fa-2x fas fa-address-card"></i>CustomerOrderList
           </router-link>
         </li>
       </ul>
@@ -39,7 +37,7 @@
       <ul class="nav flex-column mb-2">
         <li class="nav-item">
           <router-link class="nav-link" to="/admin/customerorders">
-          Simulated order
+          <i class="mr-2 fa-2x fas fa-file-alt"></i>Simulated order
           </router-link>
         </li>
       </ul>

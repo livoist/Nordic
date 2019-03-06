@@ -15,11 +15,11 @@ import App from './App'
 import router from './router'
 import './bus';
 import currencyFilter from './filters/currency'
-import zhTWValidate from 'vee-validate/dist/locale/zh_TW'
+// import zhTWValidate from 'vee-validate/dist/locale/zh_TW'
 
 Vue.use(VueAxios, axios)
 Vue.use(VeeValidate)
-VeeValidate.Validator.localize('zh_Tw',zhTWValidate)
+// VeeValidate.Validator.localize('zh_Tw',zhTWValidate)
 Vue.config.productionTip = false
 axios.defaults.withCredentials = true
 

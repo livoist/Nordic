@@ -1,8 +1,8 @@
 
 <template>
-  <nav class="navbar sticky-top flex-md-nowrap p-0">
-    <a class="navbar-brand col-2 mr-0 text-white" href="#">Admin</a>
-    <div class="d-flex justify-content-end mr-3">
+  <nav class="navbar sticky-top bg-dark p-0 b">
+    <a class="navbar-brand col-2 text-white" href="#">Admin</a>
+    <div class="mr-3">
     <a
       class="navbar-brand nav-link text-white p-2"
       style="border:1px solid black"
@@ -16,14 +16,6 @@
       @click="frontPage()"
     >Front page</a>
     </div>
-    
-    <!-- <input
-        class="form-control form-control-dark w-100"
-        type="text"
-        placeholder="Search"
-        aria-label="Search"
-        @click="searchList(name)"
-    >-->
   </nav>
 </template>
 

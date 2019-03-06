@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="font-weight-bold">
     <loading :active.sync="isLoading"></loading>
     <div class="d-flex justify-content-end mt-2">
     </div>
@@ -179,30 +179,35 @@
                   <div class="h5"> {{ newList.user.name }} </div>
                 </div>
               </div>
+              <hr>
               <div class="form-group row">
                 <label for="colFormLabelSm" class="h5 col-sm-2 col-form-label">地址:</label>
                 <div class="col-sm-10">
                   <div class="h5"> {{ newList.user.address }} </div>
                 </div>
               </div>
+              <hr>
               <div class="form-group row">
                 <label for="colFormLabel" class="h5 col-sm-2 col-form-label">電話:</label>
                 <div class="col-sm-10">
                   <div class="h5"> {{ newList.user.tel }} </div>
                 </div>
               </div>
+              <hr>
               <div class="form-group row">
                 <label for="colFormLabelLg" class="h5 col-sm-2 col-form-label">電子信箱:</label>
                 <div class="col-sm-10">
                   <div class="h5"> {{ newList.user.email }} </div>
                 </div>
               </div>
+              <hr>
               <div class="form-group row">
                 <label for="colFormLabelLg" class="h5 col-sm-2 col-form-label">注意事項:</label>
                 <div class="col-sm-10">
                   <div class="h5"> {{ newList.message }} </div>
                 </div>
               </div>
+              <hr>
             </form>
           </div>
           <div class="modal-footer">
@@ -226,7 +231,7 @@ export default {
     return {
       customerList: [],
       newList: {
-        user: []
+        user: {}
       },
       //起始資料值
       pagination: {},
@@ -256,10 +261,10 @@ export default {
       });
     },
     updateCustomerList() {
+      const vm = this;
       const api = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
       }/admin/order/${vm.newList.id}`;
-      const vm = this;
       vm.isLoading = true;
       this.$http.put(api, { data: vm.newList }).then(res => {
         console.log(res.data);
@@ -290,7 +295,7 @@ export default {
     //   })
     // },
     openCustomerModal(item) {
-      this.newList = item;
+      this.newList = Object.assign({}, item)
       $("#customerModal").modal("show");
     },
     getCustomer(item) {

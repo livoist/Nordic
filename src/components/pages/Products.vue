@@ -1,14 +1,17 @@
 <template>
-  <div>
+  <div class="font-weight-bold">
     <loading :active.sync="isLoading"></loading>
     <div class="d-flex justify-content-end mt-2">
       <div class>
-        <button class="btn btn-outline-primary mr-3" @click="openModal(true)">Build a new product</button>
+        <button class="btn btn-outline-primary mr-3" @click="openModal(true)"><i class="fas fa-plus-square mr-2"></i>Build a new product</button>
       </div>
     </div>
 
     <!-- 5，點擊事件，傳入參數true為建立新產品觸發行為 -->
-    <table class="table mt-4">
+    <div class="container">
+      <div class="form-row">
+        <div class="col-12">
+          <table class="table mt-4">
       <thead class="bg-dark text-white">
         <th width="120">Types</th>
         <th width="180">Name</th>
@@ -24,18 +27,22 @@
           <td class="text-right">{{item.origin_price | currency}}</td>
           <td class="text-right">{{item.price | currency}}</td>
           <td>
-            <span v-if="item.is_enabled" class="text-success">Enable</span>
-            <span v-else class="text-danger">Not enable</span>
+            <span v-if="item.is_enabled" class="text-success"><i class="fas fa-lock-open"></i></span>
+            <span v-else class="text-danger"><i class="fas fa-lock"></i></span>
             <!-- 24，25，判斷式，判斷是否為不能點擊狀態 -->
           </td>
           <td>
-            <button class="btn btn-outline-primary btn-sm my-1" @click="openModal(false ,item)">edit</button>
-            <button class="btn btn-outline-primary btn-sm my-1" @click="deleteProduct(item)">delete</button>
+            <div class="btn btn-outline-primary btn-sm my-1" @click="openModal(false ,item)"><i class="fas fa-pencil-alt"></i></div>
+            <div class="btn btn-outline-primary btn-sm my-1" @click="deleteProduct(item)"><i class="fas fa-trash"></i></div>
           </td>
           <!-- 28，點擊事件，傳入參數false為編輯產品觸發行為，傳入item，為原本的物件進行編輯 -->
         </tr>
       </tbody>
     </table>
+        </div>
+      </div>
+    </div>
+    
     <!-- 切換頁面Bar -->
     <nav aria-label="Page navigation example">
       <ul class="pagination">
@@ -364,7 +371,7 @@ export default {
       const url = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
       }/admin/upload`;
-      //判斷上傳icon是否顯示(預設false，寫入中為true，)
+      //判斷上傳圖片是否顯示(預設false，寫入中為true，)
       vm.status.fileUploading = true;
       this.$http
         .post(url, formData, {
@@ -382,7 +389,7 @@ export default {
             vm.$set(vm.tempProduct, "imageUrl", response.data.imageUrl);
             //因為沒有雙向綁定，所以用vue-set強制寫入(寫入的物件,寫入的屬性,寫入資料的路徑)
           } else {
-            this.$bus.$emit("message:push", response.data.message, "danger");
+            vm.status.fileUploading = false;
           }
         });
     },
@@ -393,6 +400,7 @@ export default {
   //Vue初始化執行行為
   created() {
     this.getProducts();
+    
   }
 };
 </script>

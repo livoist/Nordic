@@ -1,5 +1,5 @@
 <template>
-  <div class>
+  <div class="font-weight-bold">
     <loading :active.sync="isLoading"></loading>
     <div class="d-flex justify-content-end mt-2">
       <div class>
@@ -27,17 +27,17 @@
         </thead>
         <tbody>
           <tr v-for="(item,id) in coupons" :key="id">
-            <td>{{ Math.floor(Math.random()*52+1) }}</td>
+            <td>{{ item.id }}</td>
             <td>{{ item.percent }}</td>
             <td>{{ item.due_date }}</td>
             <td>{{ item.code }}</td>
             <td>
-              <span v-if="item.is_enabled" class="text-success">enabled</span>
-              <span v-else class="text-danger">Not enabled</span>
+              <span v-if="item.is_enabled" class="text-success"><i class="fas fa-lock-open"></i></span>
+              <span v-else class="text-danger"><i class="fas fa-lock"></i></span>
             </td>
             <td>
-              <button class="btn btn-outline-primary mt-2 btn-sm" @click="openCouponModal(false,item)">Edit</button>
-              <button class="btn btn-outline-primary mt-2 btn-sm" @click="deleteCoupon(item.id)">Delete</button>
+              <div class="btn btn-outline-primary mt-2 btn-sm" @click="openCouponModal(false,item)"><i class="fas fa-pencil-alt"></i></div>
+              <div class="btn btn-outline-primary mt-2 btn-sm" @click="deleteCoupon(item.id)"><i class="fas fa-trash"></i></div>
             </td>
           </tr>
         </tbody>

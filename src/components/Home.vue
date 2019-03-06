@@ -8,6 +8,11 @@
 </head>
 <body>
   <div class="allweb">
+    <Alert/>
+    <AboutUsModal></AboutUsModal>
+    <loading :active.sync="isLoading" :is-full-page="true">
+  <FullLoadingPage></FullLoadingPage>
+  </loading>
     <HomeNavbar></HomeNavbar>
     <Carousel></Carousel>
     <main>
@@ -30,16 +35,31 @@ $(function() {
 import $ from "jquery";
 import HomeNavbar from "./HomeNavbar";
 import Carousel from "./Carousel";
+import FullLoadingPage from "./FullLoadingPage";
+import AboutUsModal from "./AboutUsModal";
+import Alert from "./AlertMessage";
+
 
 export default {
   data() {
-    return {};
+    return {
+      isLoading: true,
+    };
   },
   components: {
     Carousel,
-    HomeNavbar
+    HomeNavbar,
+    FullLoadingPage,
+    AboutUsModal,
+    Alert,
   },
   methods: {},
+  mounted() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+    },2000)
+  },
   created() {
     this.$router.push('/HomePage')
   }

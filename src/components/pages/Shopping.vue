@@ -1,5 +1,5 @@
 <template>
-  <div class style="background-color: #424040">
+  <div class="shopping-bgc">
     <!-- cartIcon -->
     <div class="fixed-control" @click="cartPage()">
       <i class="fas fa-shopping-cart my-3 fa-2x text-white" style="z-index:100">
@@ -12,56 +12,33 @@
     <!-- Sidebar box -->
     <!-- 篩選Method，帶入參數 -->
     <div class="container">
-      <div class="row-reverse">
-        <div class="col-md-12 text-center" style="z-index:1">
-          <div
-            class="list-group list-group-flush sticky-top"
-            style="top:5px;font-family:Didot, serif"
-          >
-            <a
-              class="list-group-item list-group-item-action text-white bg-dark"
-              href="#pane-1"
-              data-toggle="list"
+      <div class="row">
+          <div class="col-12 py-5 my-4 bg-cover bg-transparent">
+          <div class="row d-flex justify-content-center align-items-center">
+            <div
               @click="filterProduct('iceland')"
-            >
-              <!-- <i class="fa fa-star-o"></i>-->
-              Iceland
-            </a>
-            <a
-              class="list-group-item list-group-item-action text-white bg-dark"
-              href="#pane-5"
-              data-toggle="list"
+              class="mx-3 my-1 col-8 col-md-2 animated-4 color-box color-box1 text-center d-flex align-items-center justify-content-center"
+            ></div>
+            <div
               @click="filterProduct('finland')"
-            >
-              <!-- <i class="fa fa-star-o"></i>-->
-              Finland
-            </a>
-            <a
-              class="list-group-item list-group-item-action text-white bg-dark"
-              href="#pane-2"
-              data-toggle="list"
+              class="mx-3 my-1 col-8 col-md-2 animated-4 color-box color-box2 text-center d-flex align-items-center justify-content-center"
+            ></div>
+            <div
               @click="filterProduct('norway')"
-            >
-              <!-- <i class="fa fa-star-o"></i>-->
-              Norway
-            </a>
-            <a
-              class="list-group-item list-group-item-action text-white bg-dark"
-              href="#pane-3"
-              data-toggle="list"
+              class="mx-3 my-1 col-8 col-md-2 animated-4 color-box color-box3 text-center d-flex align-items-center justify-content-center"
+            ></div>
+            <div
               @click="filterProduct('denmark')"
-            >
-              <!-- <i class="fa fa-star-o"></i>-->
-              Denmark
-            </a>
-            <a
-              class="list-group-item list-group-item-action text-white bg-dark"
-              href="#pane-4"
-              data-toggle="list"
+              class="mx-3 my-1 col-8 col-md-2 animated-4 color-box color-box4 text-center d-flex align-items-center justify-content-center"
+            ></div>
+            <div
               @click="filterProduct('swedan')"
-            >Swedan</a>
+              class="mx-3 my-1 col-8 col-md-2 animated-4 color-box color-box5 text-center d-flex align-items-center justify-content-center"
+            ></div>
           </div>
         </div>
+          
+        
         <!-- card box -->
         <div class="col-md-12">
           <div class="row mt-4">
@@ -73,10 +50,10 @@
                 >
                   <div v-if="item.category == 'iceland'">
                     <div class="shopping-icon-box-2"></div>
-                    <div class="shopping-icon-box">
-                      <div class="d-flex justify-content-center align-items-center text-bold">
-                        <div class="text-white font-weight-bold">Hot sale</div>
-                      </div>
+                    <div class="shopping-icon-box d-flex justify-content-center align-items-center">
+                      
+                        <div class="text-white font-weight-bold">-20%</div>
+                      
                     </div>
                   </div>
                 </div>
@@ -86,7 +63,7 @@
                     <a
                       style="text-decoration: none"
                       href.prevent="#"
-                      class="text-secondary"
+                      class="text-dark font-weight-bold"
                     >{{ item.title }}</a>
                   </h5>
                   <p class="card-text">{{ item.content }}</p>
@@ -139,8 +116,8 @@
                   <div class="modal-body">
                     <img :src="product.imageUrl" class="img-fluid" alt>
                     <blockquote class="blockquote mt-3">
-                      <p class="mb-0">{{product.content}}</p>
-                      <footer class="blockquote-footer text-right">{{ product.description }}</footer>
+                      <p class="mb-0 font-weight-bold text-center mt-2">{{product.content}}</p>
+                      <footer class="blockquote-footer text-center mt-4 font-weight-bold">{{ product.description }}</footer>
                     </blockquote>
                     <div class="d-flex justify-content-between align-items-baseline">
                       <div class="h4" v-if="!product.price">${{ product.origin_price }}</div>
@@ -260,9 +237,15 @@ export default {
       };
       this.$http.post(url, { data: cart }).then(res => {
         console.log(res);
-        vm.status.loadingItem = "";
-        vm.getCart();
+        if (res.data.success){
+          this.$bus.$emit("message:push", "Add to Shopping Cart","");
+          vm.status.loadingItem = "";
+          vm.getCart();
         //加入購物車後，取回購物車完整內容
+        }else {
+          this.$bus.$emit("message:push", "Error", "")
+          vm.getCart();
+        }
       });
     },
     //取得購物車資訊
@@ -303,34 +286,3 @@ export default {
 
 
 
-
-
-/* .panel {
-  width: 70%;
-}
-.panel ul {
-  list-style: none;
-}
-.panel ul li {
-  transition: 0.5s;
-}
-.panel ul li:hover {
-  background-color: rgba(white, 0.25);
-  cursor: pointer;
-  border-radius: 5px;
-  transform: translateY(-10px);
-} */
-/* .control {
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(10deg, #111 0%, #111 50%, transparent 100%);
-  box-sizing: border-box;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.5s;
-} */
-
-/* .control.isCartOpen {
-  opacity: 1;
-  pointer-events: initial;
-} */

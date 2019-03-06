@@ -23,6 +23,7 @@ import FinishPage from '@/components/pages/FinishPage'
 
 
 
+
 Vue.use(Router)
 
 export default new Router({

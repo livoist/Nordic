@@ -4,10 +4,10 @@
     <div class="" style="border: 3px solid black">
       <form class="form-signin login-bg-color" @submit.prevent="signin">
         <div class="text-center mb-5 d-flex flex-column ">
-          <div> <img src="https://upload.cc/i1/2019/02/14/oNg2Od.png" alt=""></div>
+          <div> <img src="https://upload.cc/i1/2019/02/19/0KSrkx.png" alt=""></div>
           <a class="font-weight-bold" href.prevent="#" style="text-decoration: none">Nordic</a>
         </div>
-        <h1 class="h5 mb-3 font-weight-normal text-center text-white">Login</h1>
+        <h1 class="h5 mb-3 font-weight-normal text-center text-dark">Login</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input
           v-model="user.username"
@@ -29,7 +29,7 @@
         >
         <div class="checkbox mb-3">
           <label>
-            <input type="checkbox" value="remember-me"> Remember me
+            <input class="custom-checkbox" type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
         <button class="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
@@ -56,7 +56,7 @@
             </i>
           </div>
         </div>
-        <p class="pt-3 mt-5 text-white year-fixed text-center" style="font-size: 13px">&copy;2019 Account Login Widget All right Reserved <br> | Design by Ben</p>
+        <p class="pt-3 mt-5 text-black year-fixed text-center" style="font-size: 13px">&copy;2019 Account Login Widget All right Reserved <br> | Design by Ben</p>
       </form>
     </div>
   </body>
@@ -64,6 +64,20 @@
 </template>
 
 <style>
+input[type="checkbox"] {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgb(59, 161, 245);
+  border-radius: 50%;
+  transition: 0.5s
+}
+input[type="checkbox"]:checked {
+  background-color: rgb(3, 66, 240);
+}
+.custom-checkbox {
+  appearance: none;
+  outline: none;
+}
 .icon-border {
   border: 1px solid black;
 }

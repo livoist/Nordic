@@ -12,16 +12,16 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto h5">
       <li class="nav-item">
-        <a class="nav-link mr-5 mt-2 navbar-title" href="#">Travel</a>
+        <a class="nav-link mr-5 mt-2 navbar-title" href="#" @click="goTravel">Travel</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link mr-5 mt-2 navbar-title" href="#">Traffic</a>
+        <a class="nav-link mr-5 mt-2 navbar-title" href="#detail-box">Traffic</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link mr-5 mt-2 navbar-title" href="#">Living</a>
+        <a class="nav-link mr-5 mt-2 navbar-title " href="#detail-box">Living</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link mr-5 mt-2 navbar-title" href="#">About us</a>
+        <a class="nav-link mr-5 mt-2 navbar-title" href="#"  @click.prevent="modalShow()">About us</a>
       </li>
       <li class="nav-item">
         <a class="nav-link navbar-title font-weight-bold text-center mt-2 login-link" href="#" style="border:1px solid black" @click="ChangeLogin()">Admin</a>
@@ -71,7 +71,7 @@ $(document).ready(function(){
     let windowHeight = $(window).height();
     console.log(scrollPos)
     if (scrollPos > 50) {
-      $(".bar-fadein").css('background-color','#282727')
+      $(".bar-fadein").css('background-color','rgba(0,0,0,0.8)')
     }else if (scrollPos < 50) {
       $(".bar-fadein").css({'background-color':'transparent','transition':'0.5s'})
     }
@@ -87,8 +87,14 @@ export default {
     }
   },
   methods: {
+    modalShow() {
+      $('.about-us-modal').toggleClass("about-us-modal-active")
+    },
     goHome(){
       this.$router.push('/HomePage')
+    },
+    goTravel() {
+      this.$router.push('/Shopping')
     },
     ChangeLogin() {
       this.$router.push('/Login')
