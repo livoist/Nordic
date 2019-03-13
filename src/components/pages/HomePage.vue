@@ -211,10 +211,11 @@ Flowing light and shadow, nature's gift, aurora, come and find the eternal and b
     </div>
 
     <!-- car、house、food(box) -->
-    <div class="container-fluid" id="detail-box">
-      <div class="row d-flex justify-content-between text-center target-fix">
+    <div class="container-fluid p-0" id="detail-box">
+      <div class="row d-flex flex-column text-center target-fix">
+        <div class="col-4">
         <div
-          class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center transparent-black-box py-5"
+          class="col-12 col-md-12 d-flex flex-column justify-content-center align-items-center transparent-black-box py-5"
         >
           <div class="text-white h4 font-weight-bold">Traffic</div>
           <i class="icon-scale fas fa-car-side fa-2x text-secondary py-5"></i>
@@ -223,7 +224,7 @@ Flowing light and shadow, nature's gift, aurora, come and find the eternal and b
           >We offer rental services and work with good merchants to get you more favorable prices.</div>
         </div>
         <div
-          class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center transparent-black-box py-5"
+          class="col-12 col-md-12 d-flex flex-column justify-content-center align-items-center transparent-black-box py-5"
         >
           <div class="text-white h4 font-weight-bold">Package</div>
           <i class="icon-scale fas fa-home fa-2x text-info py-5"></i>
@@ -232,13 +233,17 @@ Flowing light and shadow, nature's gift, aurora, come and find the eternal and b
           >The same, we also cooperate with several quality hotels and B&Bs, accommodation is not a problem at all.</div>
         </div>
         <div
-          class="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center transparent-black-box py-5"
+          class="col-12 col-md-12 d-flex flex-column justify-content-center align-items-center transparent-black-box py-5"
         >
           <div class="text-white h4 font-weight-bold">Food</div>
           <i class="icon-scale fas fa-utensils fa-2x text-danger py-5"></i>
           <div
             class
           >We work with local famous shops to offer you a discount package, which is cheap and safe.</div>
+        </div>
+        </div>
+        <div class="col-7">
+
         </div>
       </div>
     </div>
@@ -247,17 +252,17 @@ Flowing light and shadow, nature's gift, aurora, come and find the eternal and b
       <div class="row" style="height: 300px">
         <div class="col-6 col-md-3 bg-cover half-box">
           <div class="transparent-box d-flex justify-content-center align-items-center">
-            <div class="border-white">Norway</div>
+            <div class="">Norway</div>
           </div>
         </div>
         <div class="col-6 col-md-3 bg-cover half-box">
           <div class="transparent-box d-flex justify-content-center align-items-center">
-            <div class="border-white">Finland</div>
+            <div class="">Finland</div>
           </div>
         </div>
         <div class="col-6 col-md-3 bg-cover half-box">
           <div class="transparent-box d-flex justify-content-center align-items-center">
-            <div class="border-white">Sweden</div>
+            <div class="">Sweden</div>
           </div>
         </div>
         <div class="col-6 col-md-3 bg-cover half-box">

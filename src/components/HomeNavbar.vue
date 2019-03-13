@@ -12,19 +12,19 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto h5">
       <li class="nav-item">
-        <a class="nav-link mr-5 mt-2 navbar-title" href="#" @click="goTravel">Travel</a>
+        <a class="nav-link mr-5 mt-2 navbar-title1" href="#" @click="goTravel">Travel</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link mr-5 mt-2 navbar-title" href="#detail-box">Traffic</a>
+        <a class="nav-link mr-5 mt-2 navbar-title1" href="#detail-box">Traffic</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link mr-5 mt-2 navbar-title " href="#detail-box">Living</a>
+        <a class="nav-link mr-5 mt-2 navbar-title1 " href="#detail-box">Living</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link mr-5 mt-2 navbar-title" href="#"  @click.prevent="modalShow()">About us</a>
+        <a class="nav-link mr-5 mt-2 navbar-title1" href="#"  @click.prevent="modalShow()">About us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link navbar-title font-weight-bold text-center mt-2 login-link" href="#" style="border:1px solid black" @click="ChangeLogin()">Admin</a>
+        <a class="nav-link font-weight-bold text-center mt-2 login-link" href="#" style="border:1px solid black" @click="ChangeLogin()">Admin</a>
       </li>
     </ul>
   </div>
@@ -35,20 +35,33 @@
 </template>
 
 <style>
-.navbar-title {
-  transition: all 0.5s;
+.navbar-title1 {
+  position: relative;
+  transition: 0.5s
 }
-.navbar-title:hover {
-  opacity: 0.7;
-  color: #fff;
-  border-bottom: 1px solid #fff;
+.navbar-title1:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+.navbar-title1:after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  top: 100%;
+  left: 0%;
+  height: 1px;
+  transition: all 0.6s;
+  background-color: #fff;
+}
+.navbar-title1:hover:after {
+  width: 100%;
+  left: 0%;
 }
 .login-link {
   transition: 0.5s;
 }
 .login-link:hover {
   color: black!important;
-  background-color: white;
+  background-color: rgba(255,255,255,0.8);
 }
 .dropdown {
   display: none;

@@ -432,9 +432,6 @@ $colorYellow: #fdcc2f;
   font-size: 20px;
   transform: translateX(150px);
 }
-.border-white {
-  padding: 50px;
-}
 .half-box {
   &:hover {
     .transparent-box {
@@ -481,9 +478,10 @@ $colorYellow: #fdcc2f;
 }
 
 .about-us-modal {
-  background-color: #fff0af;
+  background-color: #363635;
   position: fixed;
   left: 28%;
+  color: rgba(248, 244, 244,.9);
   width: 45%;
   height: auto;
   top: 15%;
