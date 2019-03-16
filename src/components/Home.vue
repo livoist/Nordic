@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="allweb">
-    <Alert/>
+    <Alert></Alert>
     <AboutUsModal></AboutUsModal>
     <loading :active.sync="isLoading" :is-full-page="true">
   <FullLoadingPage></FullLoadingPage>

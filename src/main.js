@@ -14,15 +14,20 @@ import 'vue-loading-overlay/dist/vue-loading.css'
 import App from './App'
 import router from './router'
 import './bus';
+import * as VueGoogleMaps from 'vue2-google-maps'
 import currencyFilter from './filters/currency'
 // import zhTWValidate from 'vee-validate/dist/locale/zh_TW'
 
 Vue.use(VueAxios, axios)
 Vue.use(VeeValidate)
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyD0sg6RTkW8Di2tyjoVhpbXgp8rxH-AoEY",
+  },
+})
 // VeeValidate.Validator.localize('zh_Tw',zhTWValidate)
 Vue.config.productionTip = false
 axios.defaults.withCredentials = true
-
 Vue.component('Loading',Loading)
 Vue.filter('currency',currencyFilter)
 /* eslint-disable no-new */
@@ -30,9 +35,28 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
-})
-
+  template: '<App/>',
+  data: {
+    center: {
+      lat: 64.146582, 
+      lng: -21.9426354
+    },
+    markers: [{
+      position: {
+        lat: 64.147331,
+        lng: -21.940461
+      },
+      position: {
+        lat: 64.145823,
+        lng: -21.9412
+      },
+    }],
+    // shape: {
+    //   coords: [10,10,10,15,15,15,15,10],
+    //   type: 'poly'
+    // }
+  }
+});
 router.beforeEach((to,from,next)=>{
   console.log('to',to,'from',from,'next',next)
   if (to.meta.requiresAuth) {
@@ -52,3 +76,6 @@ router.beforeEach((to,from,next)=>{
     next()
   }
 })
+
+
+

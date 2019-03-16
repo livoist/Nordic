@@ -5,7 +5,7 @@
       v-if="cart.carts.length == 0"
     >
       <div class="h3 p-5 text-center">Your Cart is Empty</div>
-      <router-link class="btn btn-md btn-dark my-4" :to="{name:'Shopping'}" exact>Back to Pick</router-link>
+      <router-link class="btn btn-md btn-dark my-4" style="z-index: 1001" :to="{name:'Shopping'}" exact>Back to Pick</router-link>
     </div>
     <div class="container mt-5" v-else>
       <div class="row d-flex justify-content-center">
@@ -148,11 +148,11 @@ export default {
       vm.isLoading = true;
       this.$http.delete(url).then(res => {
         if (res.data.success) {
-          this.$bus.$emit('message:push','Delete Success')
+          this.$bus.$emit('message:push','Delete Success','success')
           vm.isLoading = false;
           vm.getCart();
         }else {
-          this.$bus.$emit('message:push','Delete Error')
+          this.$bus.$emit('message:push','Delete Error','danger')
           vm.isLoading = false;
           vm.getCart();
         }

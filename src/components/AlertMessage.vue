@@ -3,7 +3,7 @@
     <div
       class="alert alert-dismissible font-weight-bold"
       :class="'alert-' + item.status"
-      v-for="(item, i) in messages"
+      v-for="(item , i) in messages"
       :key="i"
     >
       {{ item.message }}
@@ -28,11 +28,12 @@ export default {
     };
   },
   methods: {
-    updateMessage(message) {
+    updateMessage(message,status) {
       const timestamp = Math.floor(new Date() / 1000);
       this.messages.push({
         message,
-        timestamp
+        status,
+        timestamp,
       });
       this.removeMessageWithTiming(timestamp);
     },
@@ -47,7 +48,7 @@ export default {
             vm.messages.splice(i, 1);
           }
         });
-      }, 3000);
+      }, 2500);
     }
   },
   created() {
@@ -56,8 +57,8 @@ export default {
     // 自定義名稱 'messsage:push'
     // message: 傳入參數
     // status: 樣式，預設值為 warning
-    vm.$bus.$on("message:push", (message ) => {
-      vm.updateMessage(message);
+    vm.$bus.$on("message:push",(message,status) => {
+      vm.updateMessage(message,status);
     });
   }
 };
@@ -68,13 +69,13 @@ export default {
 .alert {
   position: fixed;
   max-width: 50%;
-  background-color: rgba(43, 42, 42, 0.9);
   border-radius: 5px;
-  color: rgb(104, 187, 212);
   top: 56px;
   right: 20px;
   z-index: 1100;
-  transition: 0.5s
+  transition: 0.5s;
+  background-color: rgba(235, 232, 232, 0.9);
+  /* color: rgb(104, 187, 212); */
 }
 .message-alert {
   display: flex;

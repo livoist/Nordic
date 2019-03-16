@@ -1,7 +1,8 @@
 <template>
 <html>
   <body>
-    <div class="" style="border: 3px solid black">
+    <Alert/>
+    <div class="login-all">
       <form class="form-signin login-bg-color" @submit.prevent="signin">
         <div class="text-center mb-5 d-flex flex-column ">
           <div> <img src="https://upload.cc/i1/2019/02/19/0KSrkx.png" alt=""></div>
@@ -67,12 +68,14 @@
 input[type="checkbox"] {
   width: 12px;
   height: 12px;
-  border: 2px solid rgb(59, 161, 245);
+  border: 2px solid rgb(245, 195, 59);
   border-radius: 50%;
-  transition: 0.5s
+  transition: 0.5s;
+  cursor: pointer;
 }
 input[type="checkbox"]:checked {
-  background-color: rgb(3, 66, 240);
+  background-color: rgb(253, 77, 7);
+  border: 2px solid rgb(253, 77, 7);
 }
 .custom-checkbox {
   appearance: none;
@@ -94,6 +97,10 @@ input[type="checkbox"]:checked {
 
 
 <script>
+import Alert from '../AlertMessage';
+
+
+
 export default {
   name: "HelloWorld",
   data() {
@@ -104,15 +111,24 @@ export default {
       }
     };
   },
+  components: {
+    Alert,
+  },
   methods: {
     signin() {
       const api = `${process.env.APIPATH}/admin/signin`;
       const checkAPI = `${process.env.APIPATH}/api/user/check`;
       const vm = this;
-      this.$http.post(api, vm.user).then(response => {
-        console.log(response.data);
-        if (response.data.success) {
+      this.$http.post(api, vm.user).then(res => {
+        console.log(res.data);
+        if (res.data.success) {
           vm.$router.push("/admin/products");
+        }else {
+          this.$bus.$emit("message:push","Link Error","danger")
+          setTimeout(()=>{
+            this.$bus.$emit("message:push","Check your Account or Password","danger")
+          },3000)
+          
         }
       });
     }
@@ -124,7 +140,8 @@ export default {
 <style scoped>
 html,
 body {
-  height: 610px;
+  height: 100%;
+  width: 100%;
 }
 
 body {
@@ -140,8 +157,12 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: white;
+  z-index: 1;
 }
-
+.login-all {
+  border: 2px solid #000;
+  z-index: 100;
+}
 .form-signin {
   width: 100%;
   max-width: 350px;

@@ -238,12 +238,12 @@ export default {
       this.$http.post(url, { data: cart }).then(res => {
         console.log(res);
         if (res.data.success){
-          this.$bus.$emit("message:push", "Add to Shopping Cart","");
+          this.$bus.$emit("message:push", "Add to Shopping Cart","success");
           vm.status.loadingItem = "";
           vm.getCart();
         //加入購物車後，取回購物車完整內容
         }else {
-          this.$bus.$emit("message:push", "Error", "")
+          this.$bus.$emit("message:push", "Error","danger")
           vm.getCart();
         }
       });
