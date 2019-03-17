@@ -12,17 +12,17 @@
         <button class="btn btn-outline-primary" @click="removeAll()">RemoveAll</button>
       </div> -->
     </div>
-
-    <div class="row d-flex justify-content-center">
+      <div class="form-row">
+        <div class="col-12">
       <table class="table mt-4">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Coupon Name</th>
-            <th scope="col">Discount</th>
-            <th scope="col">Deadline</th>
-            <th scope="col">Couponcode</th>
-            <th scope="col">Enabled</th>
-            <th width="200">Edit</th>
+            <th width="100">Coupon Name</th>
+            <th width="160">Discount</th>
+            <th width="auto">Deadline</th>
+            <th width="auto">Couponcode</th>
+            <th width="auto">Enabled</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
@@ -42,6 +42,8 @@
           </tr>
         </tbody>
       </table>
+      </div>
+      </div>
 
       <!-- 切換頁面Bar -->
       <nav aria-label="Page navigation example">
@@ -82,7 +84,7 @@
           </li>
         </ul>
       </nav>
-    </div>
+    
 
     <!--add Coupon Modal -->
     <div

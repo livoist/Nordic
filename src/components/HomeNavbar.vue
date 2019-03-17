@@ -3,7 +3,7 @@
 <!-- bar -->
 <nav class="navbar fixed-top navbar-expand-lg py-2 bar-fadein">
   <div>
-    <a class="h5 text-white font-weight-bold" @click="goHome" href="#" style="text-decoration: none">Nordic</a> 
+    <a class="h5 text-white font-weight-bold" @click.prevent="goHome" href="#" style="text-decoration: none">Nordic</a> 
     </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="outline:none">
     <span class=""><i class="fas fa-angle-double-down text-white"></i></span>
@@ -12,7 +12,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto h5">
       <li class="nav-item">
-        <a class="nav-link mr-5 mt-2 navbar-title1" href="#" @click="goTravel">Travel</a>
+        <a class="nav-link mr-5 mt-2 navbar-title1" href="#" @click.prevent="goTravel">Travel</a>
       </li>
       <li class="nav-item">
         <a class="nav-link mr-5 mt-2 navbar-title1" href="#detail-box">Traffic</a>
@@ -78,20 +78,6 @@
 <script>
 import $ from 'jquery'
 
-$(document).ready(function(){
-  $(window).scroll(function(){
-    let scrollPos = $(window).scrollTop();
-    let windowHeight = $(window).height();
-    console.log(scrollPos)
-    if (scrollPos > 50) {
-      $(".bar-fadein").css('background-color','rgba(0,0,0,0.8)')
-    }else if (scrollPos < 50) {
-      $(".bar-fadein").css({'background-color':'transparent','transition':'0.5s'})
-    }
-  })
-})
-
-
 
 export default {
   data() {
@@ -101,7 +87,7 @@ export default {
   },
   methods: {
     modalShow() {
-      $('.about-us-modal').toggleClass("about-us-modal-active")
+      $('.about-us-modal').addClass("about-us-modal-active")
     },
     goHome(){
       this.$router.push('/HomePage')
@@ -113,6 +99,22 @@ export default {
       this.$router.push('/Login')
     },
   
+  },
+  created() {
+
+    // navbar-fadeIn-scope(JQuery)
+    $(document).ready(function(){
+  $(window).scroll(function(){
+    let scrollPos = $(window).scrollTop();
+    let windowHeight = $(window).height();
+    console.log(scrollPos)
+    if (scrollPos > 50) {
+      $(".bar-fadein").css('background-color','rgba(0,0,0,0.8)')
+    }else if (scrollPos < 50) {
+      $(".bar-fadein").css({'background-color':'transparent','transition':'0.5s'})
+    }
+  })
+})
   }
 }
 </script>

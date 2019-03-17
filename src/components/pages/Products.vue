@@ -6,9 +6,7 @@
         <button class="btn btn-outline-primary mr-3" @click="openModal(true)"><i class="fas fa-plus-square mr-2"></i>Build a new product</button>
       </div>
     </div>
-
-    <!-- 5，點擊事件，傳入參數true為建立新產品觸發行為 -->
-    <div class="container">
+    <!--點擊事件，傳入參數true為建立新產品觸發行為 -->
       <div class="form-row">
         <div class="col-12">
           <table class="table mt-4">
@@ -41,8 +39,6 @@
     </table>
         </div>
       </div>
-    </div>
-    
     <!-- 切換頁面Bar -->
     <nav aria-label="Page navigation example">
       <ul class="pagination">

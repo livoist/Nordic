@@ -389,8 +389,38 @@
 import $ from "jquery";
 
 
-//Home-page-animated
-$(document).ready(function() {
+export default {
+  data() {
+    return {
+      products: [],
+      filterTodos: [],
+      isLoading: false
+    };
+  },
+  methods: {
+    changePage(name) {
+      if (
+        (name == "",
+        "Norway",
+        "Iceland",
+        "Finland",
+        "Denmark",
+        "Sweden",
+        "More")
+      ) {
+        this.$router.push("/Shopping");
+      }
+    }
+  },
+  
+  created() {
+    // social icon tool
+    $(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    //Home-page-animated(JQuery-scope)
+    $(document).ready(function() {
   $(window).scroll(function() {
     let scrollPos = $(window).scrollTop();
     let windowHeight = $(window).height();
@@ -430,37 +460,6 @@ $(document).ready(function() {
     });
   });
 });
-
-export default {
-  data() {
-    return {
-      products: [],
-      filterTodos: [],
-      isLoading: false
-    };
-  },
-  methods: {
-    changePage(name) {
-      if (
-        (name == "",
-        "Norway",
-        "Iceland",
-        "Finland",
-        "Denmark",
-        "Sweden",
-        "More")
-      ) {
-        this.$router.push("/Shopping");
-      }
-    }
-  },
-  
-  created() {
-    // social icon tool
-
-    $(function() {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
   }
 };
 </script> 

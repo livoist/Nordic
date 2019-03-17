@@ -15,10 +15,31 @@
             </div>
             <div
               class="my-4 line-height"
-            >We are committed to creating a wonderful experience that will allow you to have the most wonderful experience..</div>
+            >We are committed to creating a wonderful experience that will allow you to have the most wonderful experience..
+            </div>
+            <div class="btn btn-light btn-sm" @click="modalHide">Close</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+
+<script>
+import $ from 'jquery'
+
+export default {
+  data() {
+    return {
+
+    }
+  },
+  methods: {
+    modalHide() {
+      $('.about-us-modal').removeClass('about-us-modal-active')
+    }
+  }
+}
+
+</script>

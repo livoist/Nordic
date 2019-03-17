@@ -22,7 +22,7 @@ Vue.use(VueAxios, axios)
 Vue.use(VeeValidate)
 Vue.use(VueGoogleMaps, {
   load: {
-    key: "AIzaSyD0sg6RTkW8Di2tyjoVhpbXgp8rxH-AoEY",
+    key: process.env.GoogleMapAPI_Key,
   },
 })
 // VeeValidate.Validator.localize('zh_Tw',zhTWValidate)
