@@ -24,6 +24,7 @@ import FinishPage from '@/components/pages/FinishPage'
 
 
 
+
 Vue.use(Router)
 
 export default new Router({
@@ -31,9 +32,7 @@ export default new Router({
     {
       path: '*',
       redirect: 'login',
-
       //把用戶可能跑到不存在的頁面導回登入畫面
-
     },
     {
       path: '/Login',
@@ -109,7 +108,5 @@ export default new Router({
         },
       ]
     },
-
-
-  ]
+  ],
 })
