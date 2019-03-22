@@ -1,9 +1,9 @@
 <template>
 <html>
-  <body>
+  <body style="background-color: black">
     <Alert/>
-    <div class="login-all">
-      <form class="form-signin login-bg-color" @submit.prevent="signin">
+    <div class="login-all bg-light">
+      <form class="form-signin" @submit.prevent="signin">
         <div class="text-center mb-5 d-flex flex-column ">
           <div> <img src="https://upload.cc/i1/2019/02/19/0KSrkx.png" alt=""></div>
           <a class="font-weight-bold" href.prevent="#" style="text-decoration: none">Nordic</a>
@@ -66,16 +66,16 @@
 
 <style>
 input[type="checkbox"] {
-  width: 12px;
-  height: 12px;
-  border: 2px solid rgb(245, 195, 59);
+  width: 10px;
+  height: 10px;
+  border: 2px solid rgb(36, 35, 34);
   border-radius: 50%;
   transition: 0.5s;
   cursor: pointer;
 }
 input[type="checkbox"]:checked {
-  background-color: rgb(253, 77, 7);
-  border: 2px solid rgb(253, 77, 7);
+  background-color: rgb(8, 8, 8);
+  border: 2px solid rgb(12, 12, 11);
 }
 .custom-checkbox {
   appearance: none;

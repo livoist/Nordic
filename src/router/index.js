@@ -18,6 +18,7 @@ import CustomerCheckout from '@/components/pages/CustomerCheckout'
 import CustomerOrderList from '@/components/pages/CustomerOrderList'
 import CartList from '@/components/pages/CartList'
 import FinishPage from '@/components/pages/FinishPage'
+import ShoppingSinglePage from '@/components/pages/ShoppingSinglePage'
 
 
 
@@ -85,6 +86,11 @@ export default new Router({
           path: 'Shopping',
           name: 'Shopping',
           component: Shopping,
+        },
+        {
+          path: 'ShoppingSinglePage',
+          name: 'ShoppingSinglePage',
+          component: ShoppingSinglePage,
         },
         {
           path: 'OrderForm',

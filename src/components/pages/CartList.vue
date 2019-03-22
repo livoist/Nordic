@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div style="background-color: black" class="p-5">
     <div
       class="d-flex justify-content-center align-items-center flex-column"
       v-if="cart.carts.length == 0"
     >
-      <div class="h3 p-5 text-center">Your Cart is Empty</div>
+      <div class="h3 p-5 text-center text-white">Your Cart is Empty</div>
       <router-link class="btn btn-md btn-dark my-4" style="z-index: 1001" :to="{name:'Shopping'}" exact>Back to Pick</router-link>
     </div>
     <div class="container mt-5" v-else>
@@ -15,7 +15,7 @@
           ，在用v-for取出data中的carts(cart.carts)，印出的部分再用item下的product取出裡面的值做渲染-->
           <ul class="padding-0">
             <div
-              class="cart-card-border cartList position-relative mb-3"
+              class="cartList position-relative mb-3"
               v-for="item in cart.carts"
               :key="item.id"
             >
@@ -69,7 +69,7 @@
               <input type="text" class="form-control outline-none" placeholder="Code" v-model="coupon_code">
               <div class="input-group-append">
                 <button
-                  class="btn btn-outline-secondary"
+                  class="btn btn-dark"
                   type="button"
                   @click="addCouponCode"
                 >Discount code</button>
@@ -82,13 +82,13 @@
                 class="h3 text-right text-success mt-2s"
                 v-if="cart.total!=cart.final_total"
               >- {{ Math.floor((cart.final_total/cart.total)*100) }}% Total: ${{ cart.final_total }}</div>
-              <div class="h5 text-dark text-right" v-else>Total: ${{ cart.total }}</div>
+              <div class="h5 text-white text-right" v-else>Total: ${{ cart.total }}</div>
             </div>
             <!--  -->
           </ul>
           <div class="row">
             <div class="col-12">
-              <div class="d-flex flex-column justify-content-center align-items-center font-weight-bold" style="border: 1px solid black">
+              <div class="d-flex flex-column justify-content-center align-items-center font-weight-bold text-white" style="border: 1px solid white">
             coupon code:
             <div>code: 30%</div>
             <div>code: 50%</div>
@@ -100,11 +100,11 @@
       </div>
       <div class="row"><div class="col-12">
         <div class="footer text-right my-5">
-        <button class="btn btn-outline-dark" @click="goPay()">Go pay</button>
+        <button class="btn btn-outline-light btn-sm" @click="goPay()">Go pay</button>
       </div></div></div>
     </div>
     <hr>
-    <div class="text-center p-4">
+    <div class="text-center text-white p-4">
       ©2019 All right Reserved
       | Design by Ben
     </div>

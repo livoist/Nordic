@@ -93,10 +93,6 @@ body {
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 
 
-// login-bg-color
-.login-bg-color {
-  background: rgba($warning, 0.5);
-}
 
 // HomePage-All
 .allweb {
@@ -330,6 +326,9 @@ $colorYellow: #fdcc2f;
 
 
 //shopping-page
+.card {
+  border: none;
+}
 .card-hover-move {
   overflow: hidden;
   transition: 0.5s;
@@ -509,20 +508,14 @@ $colorYellow: #fdcc2f;
 .price-middle-line {
   text-decoration: line-through;
 }
-.card-bg-color {
-  background-color: rgba(white,0.7);
-  border: 3px solid rgba(black,0.8);
-}
 .cartList {
   transition:0.5s;
   padding: 20px;
+  background-color: rgba(231, 231, 231, 0.9);
     &:hover {
-      background-color: rgba(209, 239, 248, 0.4);
+      background-color: rgba(white,0.9);
       transform: translateY(-5px);
     }
-}
-.cart-card-border {
-  border: 3px solid black;
 }
 
 // discount-icon box
@@ -590,3 +583,4 @@ $colorYellow: #fdcc2f;
   opacity: 0
 }
 //----------------------
+

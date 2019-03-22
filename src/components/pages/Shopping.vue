@@ -13,7 +13,7 @@
     <!-- 篩選Method，帶入參數 -->
     <div class="container">
       <div class="row">
-          <div class="col-12 py-5 my-4 bg-cover bg-transparent">
+        <div class="col-12 py-5 my-4 bg-cover bg-transparent">
           <div class="row d-flex justify-content-center align-items-center">
             <div
               @click="filterProduct('iceland')"
@@ -37,8 +37,7 @@
             ></div>
           </div>
         </div>
-          
-        
+
         <!-- card box -->
         <div class="col-md-12">
           <div class="row mt-4">
@@ -51,9 +50,7 @@
                   <div v-if="item.category == 'iceland'">
                     <div class="shopping-icon-box-2"></div>
                     <div class="shopping-icon-box d-flex justify-content-center align-items-center">
-                      
-                        <div class="text-white font-weight-bold">-20%</div>
-                      
+                      <div class="text-white font-weight-bold">-20%</div>
                     </div>
                   </div>
                 </div>
@@ -75,14 +72,10 @@
                 </div>
                 <div class="card-footer d-flex">
                   <!-- 取得單一產品內容，並加入動態icon判斷參數 -->
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary btn-sm"
-                    @click="getProduct(item)"
-                  >
+                  <div class="btn btn-outline-dark btn-sm" @click="detailPage(item)">
                     <i class="fas fa-sync fa-spin" v-if="status.loadingItem === item"></i>
                     See More
-                  </button>
+                  </div>
                   <!-- 加入購物車，並加入動態icon判斷參數 -->
                   <button
                     type="button"
@@ -92,56 +85,6 @@
                     <i class="fas fa-spinner fa-pulse" v-if="status.loadingItem === item.id"></i>
                     Add Cart
                   </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- single productModal -->
-            <div
-              class="modal fade"
-              id="productModal"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ product.title }}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <img :src="product.imageUrl" class="img-fluid" alt>
-                    <blockquote class="blockquote mt-3">
-                      <p class="mb-0 font-weight-bold text-center mt-2">{{product.content}}</p>
-                      <footer class="blockquote-footer text-center mt-4 font-weight-bold">{{ product.description }}</footer>
-                    </blockquote>
-                    <div class="d-flex justify-content-between align-items-baseline">
-                      <div class="h4" v-if="!product.price">${{ product.origin_price }}</div>
-                      <div
-                        class="h6 price-middle-line"
-                        v-if="product.price"
-                      >Price ${{ product.origin_price }}</div>
-                      <div class="h4 text-danger" v-if="product.price">Sale ${{ product.price }}</div>
-                    </div>
-                    <select name class="form-content mt-3" v-model="product.num">
-                      <option :value="num" v-for="num in 10" :key="num">{{ num }}</option>
-                    </select>
-                  </div>
-                  <div class="modal-footer">
-                    <div class="text-muted text-nowrap mr-3">
-                      Total
-                      <strong>{{ product.num * product.price }}</strong>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      @click="addtoCart(product.item,product.id,product.num)"
-                    >Add to Cart</button>
-                  </div>
                 </div>
               </div>
             </div>
@@ -207,25 +150,23 @@ export default {
         vm.filterTodos = newAry;
       }
     },
-    getProduct(item) {
-      const vm = this;
-      const url = `${process.env.APIPATH}/api/${
-        process.env.CUSTOMPATH
-      }/product/${item.id}`;
-      // 抓取點擊物件(加上ID)的API
-      // vm.status.loadingItem = item.id;
-      //data設定空值存放抓取的id進行比對
-      vm.isLoading = true;
-      this.$http.get(url).then(response => {
-        $("#productModal").modal("show");
-        console.log(response);
-        vm.product = response.data.product;
-        vm.product.num = 1;
-        vm.isLoading = false;
-        // vm.status.loadingItem = "";
-        //結束後結束loading icon
-      });
-    },
+    // getProduct(item) {
+    //   const vm = this;
+    //   const url = `${process.env.APIPATH}/api/${
+    //     process.env.CUSTOMPATH
+    //   }/product/${item.id}`;
+
+    //   vm.isLoading = true;
+    //   this.$http.get(url).then(response => {
+    //     $("#productModal").modal("show");
+    //     console.log(response);
+    //     vm.product = response.data.product;
+    //     vm.product.num = 1;
+    //     vm.isLoading = false;
+
+    //     this.$router.push("/ShoppingSinglePage")
+    //   });
+    // },
     //商品加入購物車行為
     addtoCart(item, id, qty = 1) {
       const vm = this;
@@ -237,13 +178,13 @@ export default {
       };
       this.$http.post(url, { data: cart }).then(res => {
         console.log(res);
-        if (res.data.success){
-          this.$bus.$emit("message:push", "Add to Shopping Cart","success");
+        if (res.data.success) {
+          this.$bus.$emit("message:push", "Add to Shopping Cart", "success");
           vm.status.loadingItem = "";
           vm.getCart();
-        //加入購物車後，取回購物車完整內容
-        }else {
-          this.$bus.$emit("message:push", "Error","danger")
+          //加入購物車後，取回購物車完整內容
+        } else {
+          this.$bus.$emit("message:push", "Error", "danger");
           vm.getCart();
         }
       });
@@ -264,6 +205,12 @@ export default {
     },
     cartPage() {
       this.$router.push("/CartList");
+    },
+    detailPage(item) {
+      this.$router.push({
+        name: "ShoppingSinglePage",
+        params: {id: item.id}
+      });
     }
   },
   computed: {},
