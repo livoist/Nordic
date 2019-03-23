@@ -2,7 +2,7 @@
   <div class="p-5" style="background-color: black">
     <loading :active.sync="isLoading"></loading>
     <div class="fixed-control" @click="cartPage()">
-      <i class="fas fa-shopping-cart my-3 fa-2x text-dark" style="z-index:100">
+      <i class="fas fa-shopping-cart my-3 fa-2x text-white" style="z-index:100">
         <span class="h6">{{ cart.carts.length }}</span>
       </i>
     </div>
