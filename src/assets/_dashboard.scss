@@ -113,7 +113,7 @@ body {
   background-color:black;
 }
 
-//mixin-scope lighten-color-box(row)
+//mixin-scope shopping-btn-box
 $colorDeepRed: #c50d31;
 $colorWhite: #ffffff;
 $colorLightRed: #ed2a32;
@@ -164,7 +164,7 @@ $colorYellow: #fdcc2f;
   }
   &:hover {
     transform: translateY(-5px);
-    background: linear-gradient(left, $color 0%, $color2 100%);
+    background: linear-gradient(to left, $color 0%, $color2 100%);
   }
 }
 
@@ -199,7 +199,7 @@ $colorYellow: #fdcc2f;
 }
 
 
-//light-box-picture-set
+//input-picture box-set
 .bg-color {
   background-color: rgb(13, 13, 14);
 }
@@ -326,7 +326,7 @@ $colorYellow: #fdcc2f;
 
 
 //shopping-page
-.card {
+.border-none {
   border: none;
 }
 .card-hover-move {
@@ -339,6 +339,12 @@ $colorYellow: #fdcc2f;
 }
 .shopping-bgc {
   background-color: black;
+}
+//shopping-single-page
+.singlepage-img-set {
+  max-width: 55vh;
+  max-height: 70vh; 
+  border: 1px solid white;
 }
 
 //cart-icon-set

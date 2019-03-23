@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column text-center justify-content-center align-items-center">
+  <div class="d-flex flex-column text-center justify-content-center align-items-center p-3" >
     <div class="card p-5 mt-4 mb-5 bg-light">
       <div class="h3 font-weight-font my-5 py-3">Thanks Your Order</div>
       <div class="h5 line-height mt-3 mb-5">Welcome to order again

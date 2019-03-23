@@ -42,7 +42,7 @@
         <div class="col-md-12">
           <div class="row mt-4">
             <div class="col-md-4 mb-4" v-for="(item,id) in filterTodos" :key="id">
-              <div class="card shadow-sm card-bg-color card-hover-move">
+              <div class="card shadow-sm card-bg-color card-hover-move border-none">
                 <div
                   style="height: 150px; background-size: cover; background-position: center"
                   :style="{backgroundImage: `url(${item.imageUrl})`}"

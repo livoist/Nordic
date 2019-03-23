@@ -9,7 +9,7 @@
     <div class=" mx-5">
       <div class>
         <div class="body d-flex flex-column justify-content-center align-items-center">
-          <img :src="product.imageUrl" class="img-fluid" style="max-width: 55vh ; max-height: 70vh ; border: 1px solid white" >
+          <img :src="product.imageUrl" class="img-fluid singlepage-img-set">
           <blockquote class="blockquote mt-3">
             <p class="mb-0 font-weight-bold text-center mt-2 text-white">{{product.content}}</p>
             <div
