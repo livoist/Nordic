@@ -10,7 +10,7 @@
     <div class="container mt-5" v-else>
       <div class="row d-flex justify-content-center">
         <loading :active.sync="isLoading"></loading>
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-6">
           <!--先把抓出來的res.data.data存入陣列cart
           ，在用v-for取出data中的carts(cart.carts)，印出的部分再用item下的product取出裡面的值做渲染-->
           <ul class="padding-0">
@@ -28,21 +28,21 @@
                 </div>
               </div>
               <hr>
-              <li class="h3 text-center mb-4">{{ item.product.title }}</li>
-              <div class="d-flex justify-content-start ml-5">
+              <li class="h4 text-center mb-4">{{ item.product.title }}</li>
+              <div class="d-flex flex-column justify-content-center align-items-center">
                 <img
-                  class="mr-5"
-                  style="height:150px; width:120px; background-size: cover; background-position: center"
+                  class="mr-2"
+                  style="height:180px; width:140px; background-size: cover; background-position: center"
                   :src="item.product.imageUrl"
                   alt
                 >
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                <div class="h6 text-primary font-weight-bold">{{ item.product.description }}</div></div>
+                <div class="d-flex justify-content-center align-items-center ml-1">
+                <div class="h6 text-primary font-weight-bold my-5">{{ item.product.description }}</div></div>
               </div>
-              <div class="d-flex">
-                <div class="price-box mr-auto">
-                <div class="h6 price-middle-line ml-5 my-2">${{ item.product.origin_price }}</div>
-                <div class="h3 text-danger ml-5 mt-2">${{ item.product.price }}</div>
+              <div class="d-flex justify-content-between">
+                <div class="price-box ml-3 d-flex flex-column justify-content-center align-items-center">
+                <div class="h6 price-middle-line">${{ item.product.origin_price }}</div>
+                <div class="h3 text-danger">${{ item.product.price }}</div>
                 </div>
                 <div class="d-flex flex-column align-items-end">
                 <div class="h5 text-dark">Num: {{ item.qty }}</div>
