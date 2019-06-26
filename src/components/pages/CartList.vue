@@ -1,10 +1,10 @@
 <template>
-  <div style="background-color: black" class="p-5">
+  <div class="py-5 bg-black">
     <div
-      class="d-flex justify-content-center align-items-center flex-column"
+      class="d-flex justify-content-center align-items-center flex-column my-5"
       v-if="cart.carts.length == 0"
     >
-      <div class="h3 p-5 text-center text-white">Your Cart is Empty</div>
+      <div class="h3 py-5 text-center text-white">Your Cart is Empty</div>
       <router-link class="btn btn-md btn-dark my-4" style="z-index: 1001" :to="{name:'Shopping'}" exact>Back to Pick</router-link>
     </div>
     <div class="container mt-5" v-else>
@@ -31,13 +31,13 @@
               <li class="h4 text-center mb-4">{{ item.product.title }}</li>
               <div class="d-flex flex-column justify-content-center align-items-center">
                 <img
-                  class="mr-2"
-                  style="height:180px; width:140px; background-size: cover; background-position: center"
+                  class="img-fluid"
+                  style="background-size: cover; background-position: center"
                   :src="item.product.imageUrl"
                   alt
                 >
-                <div class="d-flex justify-content-center align-items-center ml-1">
-                <div class="h6 text-primary font-weight-bold my-5">{{ item.product.description }}</div></div>
+                <div class="d-flex justify-content-center align-items-center">
+                <div class="h6 text-primary font-weight-bold my-5 px-2 text-center">{{ item.product.description }}</div></div>
               </div>
               <div class="d-flex justify-content-between">
                 <div class="price-box ml-3 d-flex flex-column justify-content-center align-items-center">
@@ -50,7 +50,7 @@
                 <div>
                   <div
                   class="btn btn-outline-dark btn-sm my-2"
-                  @click="shoppingPage"
+                  @click="shoppingPage()"
                 ><i class="fas fa-pencil-alt"></i></div>
                 <div
                   class="btn btn-outline-dark btn-sm my-2"
@@ -88,7 +88,7 @@
           </ul>
           <div class="row">
             <div class="col-12">
-              <div class="d-flex flex-column justify-content-center align-items-center font-weight-bold text-white" style="border: 1px solid white">
+              <div class="d-flex flex-column justify-content-center align-items-center font-weight-bold text-white white-border-1">
             coupon code:
             <div>code: 30%</div>
             <div>code: 50%</div>
@@ -102,11 +102,6 @@
         <div class="footer text-right my-5">
         <button class="btn btn-outline-light btn-sm" @click="goPay()">Go pay</button>
       </div></div></div>
-    </div>
-    <hr>
-    <div class="text-center text-white p-4">
-      ©2019 All right Reserved
-      | Design by Ben
     </div>
   </div>
 </template>

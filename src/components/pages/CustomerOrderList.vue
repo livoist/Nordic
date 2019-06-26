@@ -21,8 +21,7 @@
           <td class="text-right">{{ item.message }}</td>
           <td class="text-right">{{ item.total }}</td>
           <td
-            class="text-right text-success"
-            style="cursor:pointer"
+            class="text-right text-success cursor-pointer"
             @click="getCustomer(item)"
           >訂購人詳細資訊</td>
           <td>

@@ -2,7 +2,7 @@
 
 <template>
   <!-- import!!!  v-for迴圈在印出多個物件時使用，但在created取得資料時，就可以從資料結構裡取出在頁面上做渲染，不用跑v-for  -->
-  <div class="container">
+  <div class="container py-5">
     <div class="card my-3">
       <div class="row justify-content-center">
         <form class="col-10 col-sm-8 col-md-6 font-weight-bold" @submit.prevent="payOrder">
@@ -83,13 +83,6 @@
           </div>
         </form>
       </div>
-    </div>
-    <div class="mt-5 pt-5">
-      <hr>
-    </div>
-    <div class="text-center p-4">
-      ©2019 All Reserved
-      | Design by Ben
     </div>
   </div>
 </template>

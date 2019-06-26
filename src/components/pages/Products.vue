@@ -304,7 +304,6 @@ export default {
         vm.isLoading = false;
         vm.products = response.data.products;
         vm.pagination = response.data.pagination;
-        //271,272為把取出來的api傳入定義的空陣列或物件裡
       });
     },
     updateProduct() {

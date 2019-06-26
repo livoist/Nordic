@@ -5,6 +5,7 @@
 
 
 import Vue from 'vue'
+import Vuex from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VeeValidate from 'vee-validate'
@@ -16,10 +17,12 @@ import router from './router'
 import './bus';
 import * as VueGoogleMaps from 'vue2-google-maps'
 import currencyFilter from './filters/currency'
+import store from './store'
 // import zhTWValidate from 'vee-validate/dist/locale/zh_TW'
 
 Vue.use(VueAxios, axios)
 Vue.use(VeeValidate)
+Vue.use(Vuex)
 Vue.use(VueGoogleMaps, {
   load: {
     key: process.env.GoogleMapAPI_Key,
@@ -34,6 +37,7 @@ Vue.filter('currency',currencyFilter)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>',
   data: {

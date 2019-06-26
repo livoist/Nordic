@@ -20,6 +20,7 @@
         <router-view></router-view>
       </transition>
     </main>
+    <Footer></Footer>
   </div>
 </body>
 </html>
@@ -38,12 +39,13 @@ import Carousel from "./Carousel";
 import FullLoadingPage from "./FullLoadingPage";
 import AboutUsModal from "./AboutUsModal";
 import Alert from "./AlertMessage";
+import Footer from "./Footer"
 
 
 export default {
   data() {
     return {
-      isLoading: true,
+      isLoading: false,
     };
   },
   components: {
@@ -52,8 +54,14 @@ export default {
     FullLoadingPage,
     AboutUsModal,
     Alert,
+    Footer,
   },
   methods: {},
+  // computed: {
+  //   isLoading() {
+  //     return this.$store.state.isLoading;
+  //   }
+  // },
   mounted() {
     this.isLoading = true;
     setTimeout(() => {

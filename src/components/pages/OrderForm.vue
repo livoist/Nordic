@@ -97,14 +97,6 @@
     </div> 
   </div>
   </div>
-  <hr>
-  <div class="text-center p-4">©2019 All right Reserved 
-| Design by Ben</div>
-  <!-- <div class="row">
-    <div class="col-12 bg-dark" style="height:80px">
-
-    </div>
-  </div> -->
   </div>
 </template>
 

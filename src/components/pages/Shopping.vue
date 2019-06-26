@@ -1,5 +1,5 @@
 <template>
-  <div class="shopping-bgc">
+  <div class="bg-black">
     <!-- cartIcon -->
     <div class="fixed-control" @click="cartPage()">
       <i class="fas fa-shopping-cart my-3 fa-2x text-white" style="z-index:100">
@@ -7,7 +7,7 @@
       </i>
     </div>
 
-    <loading :active.sync="isLoading"></loading>
+    <!-- <loading :active.sync="isLoading"></loading> -->
 
     <!-- Sidebar box -->
     <!-- 篩選Method，帶入參數 -->
@@ -58,7 +58,6 @@
                   <span class="badge badge-dark float-right ml-2">{{ item.category }}</span>
                   <h5 class="card-title">
                     <a
-                      style="text-decoration: none"
                       href.prevent="#"
                       class="text-dark font-weight-bold"
                     >{{ item.title }}</a>
@@ -116,7 +115,7 @@ export default {
       status: {
         loadingItem: ""
       },
-      isLoading: false,
+      // isLoading: false,
       // isCartOpen: false,
       // totalShow: false,
       coupon_code: ""
@@ -125,15 +124,16 @@ export default {
   },
   methods: {
     getProducts() {
+      // this.$store.dispatch('getProducts')
       const vm = this;
       const url = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
       }/products/all`;
-      vm.isLoading = true;
+      vm.$store.dispatch('updateLoading', true)
       this.$http.get(url).then(res => {
         vm.filterTodos = res.data.products;
         vm.products = res.data.products;
-        vm.isLoading = false;
+        vm.$store.dispatch('updateLoading', false)
         console.log(res);
       });
     },
@@ -193,11 +193,11 @@ export default {
     getCart() {
       const vm = this;
       const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-      vm.isLoading = true;
+      vm.$store.dispatch('updateLoading', true);
       //全畫面loading icon觸發
       this.$http.get(url).then(res => {
         console.log(res);
-        vm.isLoading = false;
+        vm.$store.dispatch('updateLoading', false);
         vm.cart = res.data.data;
         //定義陣列Cart，並把更新後的Data傳入Cart
         //全畫面loading icon關閉
@@ -213,7 +213,14 @@ export default {
       });
     }
   },
-  computed: {},
+  // computed: {
+  //   filterTodos() {
+  //     return this.$store.state.filterTodos;
+  //   },
+  //   products() {
+  //     return this.$store.state.products;
+  //   }
+  // },
 
   created() {
     this.getProducts();

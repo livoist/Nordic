@@ -3,7 +3,10 @@
 <!-- bar -->
 <nav class="navbar fixed-top navbar-expand-lg py-2 bar-fadein">
   <div>
-    <a class="h5 text-white font-weight-bold" @click.prevent="goHome" href="#" style="text-decoration: none">Nordic</a> 
+    <a class="h5 m-0 text-white font-weight-bold d-flex justify-content-center align-items-center" @click.prevent="goHome" href="#" style="text-decoration: none">
+      <img src="https://upload.cc/i1/2019/02/19/0KSrkx.png" alt="">
+      <span class="mx-3">Nordic</span>
+      </a> 
     </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="outline:none">
     <span class=""><i class="fas fa-angle-double-down text-white"></i></span>
@@ -109,9 +112,9 @@ export default {
     let windowHeight = $(window).height();
     console.log(scrollPos)
     if (scrollPos > 50) {
-      $(".bar-fadein").css('background-color','rgba(0,0,0,0.8)')
+      $(".bar-fadein").css('background-color','#2c3144')
     }else if (scrollPos < 50) {
-      $(".bar-fadein").css({'background-color':'transparent','transition':'0.5s'})
+      $(".bar-fadein").css({'background-color':'transparent','transition':'0.3s'})
     }
   })
 })
