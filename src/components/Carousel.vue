@@ -57,8 +57,7 @@
             <div class="carousel-font-box pb-5">
               <small>norway</small>
               <div class="h5 font-weight-bold">Fox</div>
-              <p>Come play with me
-.</p>
+              <p>Come play with me.</p>
             </div>
           </div>
         </div>
@@ -76,29 +75,19 @@
           </div>
         </div>
       </div>
-      <!-- <a
-        class="carousel-control-prev"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a
-        class="carousel-control-next"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a> -->
     </div>
   </div>
 </template>
 
 <style>
+.carousel-caption {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+}
 .carousel-font-box {
   opacity: 0;
   transition: 0.5s
@@ -107,7 +96,7 @@
   opacity: 1;
 }
 .car-item {
-  height: 450px;
+  min-height: 100vh;
 }
 .bg-cover {
   background-size: cover;

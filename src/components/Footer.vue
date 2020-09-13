@@ -3,30 +3,6 @@
       <div class="container-fluid custom-color-black">
         <div class="row d-flex justify-content-center">
           <div class="col-6 d-flex text-center justify-content-center pt-5 pb-2 text-white">
-            <!-- <div class="mx-2">
-              <a href="#">
-                <i
-                  class="web-footer-social-icon fab fa-twitter-square fa-2x"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  title="Twitter"
-                  id="tool"
-                ></i>
-              </a>
-              <div class="mt-2 social-font-color">Twitter</div>
-            </div> -->
-            <!-- <div class="mx-2">
-              <a href=#>
-                <i
-                  class="web-footer-social-icon fab fa-medium fa-2x"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  title="Medium"
-                  id="tool"
-                ></i>
-              </a>
-              <div class="mt-2 social-font-color">Medium</div>
-            </div> -->
             <div class="mx-2">
               <a href="#!">
                 <i

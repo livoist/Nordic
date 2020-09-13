@@ -48,15 +48,10 @@
 </template>
 
 <script>
+import $ from "jquery";
 
 export default {
-  data() {
-    return {
-
-    }
-  },
   created() {
-    // social icon tool
     $(function() {
       $('[data-toggle="tooltip"]').tooltip();
     });

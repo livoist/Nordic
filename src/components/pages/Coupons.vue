@@ -146,7 +146,6 @@ export default {
       coupons: [],
       newCoupon: {},
       tempProduct: {},
-      isLoading: false,
       pagination: {},
       isNew: false,
     };
@@ -158,7 +157,6 @@ export default {
         process.env.CUSTOMPATH
       }/admin/coupons?page=${page}`;
       const vm = this;
-      console.log(process.env.APIPATH, process.env.CUSTOMPATH);
       vm.isLoading = true;
       this.$http.get(api).then(res => {
         console.log(res.data);

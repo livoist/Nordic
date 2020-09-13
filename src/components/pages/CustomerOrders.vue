@@ -1,10 +1,3 @@
-<!-- 10，載入loading的fontawesome -->
-<!-- 12，v-for迴圈抓出陣列中的物件，並設定ID為物件ID -->
-<!--16，11(CSS樣式)，動態載入圖片 -->
-<!--34，點擊事件(傳入物件ID，抓取單一物件的內容到Modal裡)
-37，判斷，假如正在載入的物件ID等於自己的ID則顯示loading icon-->
-
-
 <template>
   <div>
     <!-- cartIcon -->
@@ -75,7 +68,7 @@
             <div class="modal-body">
               <img :src="product.imageUrl" class="img-fluid" alt>
               <blockquote class="blockquote mt-3">
-                <p class="mb-0">{{product.content}}</p>
+                <p class="mb-0">{{ product.content }}</p>
                 <footer class="blockquote-footer text-right">{{ product.description }}</footer>
               </blockquote>
               <div class="d-flex justify-content-between align-items-baseline">
@@ -95,7 +88,7 @@
               <button
                 type="button"
                 class="btn btn-primary"
-                @click="addtoCart(product.item, product.id,product.num)"
+                @click="addtoCart(product.item, product.id, product.num)"
               >Add to Cart</button>
             </div>
           </div>
@@ -115,7 +108,6 @@
             <span aria-hidden="true">&laquo;</span>
             <span class="sr-only">Previous</span>
           </a>
-          <!-- 38，點擊事件(取消預設行為)，取得產品頁面的所在頁數-1(回上頁) -->
         </li>
         <li
           class="page-item"
@@ -125,8 +117,6 @@
         >
           <a class="page-link" href="#" @click.prevent="getProducts(page)">{{ page }}</a>
         </li>
-        <!-- 45，點擊事件(取消預設行為)，取得產品頁面的所在頁數，並且顯示出來 -->
-        <!-- 44，條件切換(active)，若現在的頁面等於取得的頁面則顯示active -->
         <li class="page-item" :class="{'disabled': !pagination.has_next}">
           <a
             class="page-link"
@@ -137,7 +127,6 @@
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>
-          <!-- 48，點擊事件(取消預設行為)，取得產品頁面的所在頁數+1(往下頁) -->
         </li>
       </ul>
     </nav>
@@ -161,8 +150,6 @@
           </div>
           <div class="modal-body">
             <div>
-              <!--先把抓出來的response.data.data存入陣列cart
-              ，在用v-for取出data中的carts(cart.carts)，印出的部分再用item下的product取出裡面的值做渲染-->
               <ul>
                 <div class="cartList" v-for="item in cart.carts" :key="item.id">
                   <hr>
@@ -191,7 +178,6 @@
                   </div>
                   <hr>
                 </div>
-                <!--Total顯示處(資料結構，印出陣列cart下的final_total)-->
                 <div class="h3 text-right text-danger mt-5 pt-5">Total ${{ cart.final_total }} </div>
               </ul>
             </div>
@@ -234,12 +220,6 @@ export default {
   data() {
     return {
       products: [],
-      cart: {
-        carts: []
-      },
-      product: {
-        num: 0,
-      },
       pagination: {},
       status: {
         loadingItem: ""
@@ -247,13 +227,16 @@ export default {
       isLoading: false,
       isCartOpen: false,
       totalShow: false,
-      coupon_code: '',
-      
+      coupon_code: ''
     };
   },
+  computed: {
+    cart() {
+      return this.$store.state.cart
+    }
+  },
   methods: {
-    //切換頁面methods
-    getProducts(page = 1) {
+    async getProducts(page = 1) {
       const vm = this;
       const url = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
@@ -261,31 +244,13 @@ export default {
       vm.isLoading = true;
       this.$http.get(url).then(response => {
         vm.products = response.data.products;
-        // console.log(response);
         vm.isLoading = false;
         vm.pagination = response.data.pagination;
-        console.log(response.data)
       });
     },
     getProduct(id) {
-      const vm = this;
-      const url = `${process.env.APIPATH}/api/${
-        process.env.CUSTOMPATH
-      }/product/${id}`;
-      // 111~113，抓取單一物件的API
-      vm.status.loadingItem = id;
-      //115，data設定空值存放抓取的id進行比對
-      vm.isLoading = true;
-      this.$http.get(url).then(response => {
-        $("#productModal").modal("show");
-        console.log(response);
-        vm.isLoading = false;
-        vm.product = response.data.product;
-        vm.status.loadingItem = "";
-        //123，結束後結束loading icon
-      });
+      this.$store.dispatch('getProduct', id)
     },
-    //商品加入購物車行為
     addtoCart(item, id, qty = 1) {
       const vm = this;
       const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
@@ -298,23 +263,11 @@ export default {
         console.log(response);
         vm.status.loadingItem = "";
         vm.getCart();
-        //155，加入購物車後，取回購物車完整內容
         $("#productModal").modal("hide");
       });
     },
-    //取得購物車資訊
     getCart() {
-      const vm = this;
-      const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-      vm.isLoading = true;
-      //全畫面loading icon觸發
-      this.$http.get(url).then(response => {
-        console.log(response);
-        vm.isLoading = false;
-        vm.cart = response.data.data;
-        //定義陣列Cart，並把更新後的Data傳入Cart
-        //全畫面loading icon關閉
-      });
+      this.$store.dispatch('getCarts')
     },
     removeCartItem(id) {
       const vm = this;
@@ -343,9 +296,6 @@ export default {
         vm.isLoading = false;
       });
     }
-  },
-  computed: {
-
   },
   created() {
     this.getProducts();

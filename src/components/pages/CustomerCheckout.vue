@@ -1,7 +1,4 @@
-
-
 <template>
-  <!-- import!!!  v-for迴圈在印出多個物件時使用，但在created取得資料時，就可以從資料結構裡取出在頁面上做渲染，不用跑v-for  -->
   <div class="container py-5">
     <div class="card my-3">
       <div class="row justify-content-center">
@@ -27,7 +24,6 @@
                 <td colspan="2"></td>
                 <td colspan="4"></td>
                 <td colspan="6" class="text-right text-danger h5">
-                  <!-- <span class="mr-3"></span> -->
                   Total：{{ order.total }}
                 </td>
               </tr>
@@ -38,8 +34,9 @@
             <thead class="thead-dark">
               <tr>
                 <th></th>
-                <th colspan="12"> <span style="display: inline-block; transform: translateX(-50px)">Orderer information</span> </th>
-                
+                <th colspan="12">
+                  <span style="display: inline-block; transform: translateX(-50px)">Orderer information</span>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -88,6 +85,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -98,24 +97,24 @@ export default {
     };
   },
   methods: {
-    getOrder() {
+    async getOrder() {
       const vm = this;
       const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/order/${
         vm.orderId
       }`;
-      vm.isLoading = true;
-      this.$http.get(api).then(res => {
-        vm.order = res.data.order;
-        vm.isLoading = false;
-        console.log(res);
-      });
+      try {
+        const res = await axios.get(api)
+        vm.order = res.data.order
+        console.log('vm.order-----------',res.data.order)
+      } catch(err) {
+        console.log(err)
+      }
     },
     payOrder() {
       const vm = this;
       const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/pay/${
         vm.orderId
       }`;
-      vm.isLoading = true;
       this.$http.post(api).then(res => {
         console.log(res);
         if (res.data.success) {
@@ -124,14 +123,12 @@ export default {
           }, 4000);
           vm.getOrder();
         }
-        vm.isLoading = false;
       });
     }
   },
   created() {
-    this.orderId = this.$route.params.orderId;
-    this.getOrder();
-    console.log(this.orderId);
+    this.orderId = this.$route.params.orderId
+    this.getOrder()
   }
 };
 </script>

@@ -102,7 +102,6 @@ input,select,textarea {
 /*
  * Navbar
  */
-
 .navbar-brand {
   padding-top: .75rem;
   padding-bottom: .75rem;
@@ -353,12 +352,6 @@ $colorYellow: #fdcc2f;
   transition: 3s;
   transform: translateY(100px);
   transition-delay: 3s;
-}
-.animated-4 {
-  opacity: 0;
-  transition: 1s;
-  transform: translateX(-100px);
-  transition-delay: 1s;
 }
 .animated-5 {
   opacity: 0;

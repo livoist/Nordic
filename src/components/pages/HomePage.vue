@@ -14,13 +14,13 @@
                   ></div>
                   <div
                     class="col-12 col-md-8 d-flex flex-column justify-content-center text-center align-items-center row1-text-color"
-                    style="height:596px"
+                    style="height: 650px"
                   >
                     <div class="h3">Welcome Iceland</div>
                     <p
                       class="h5 mt-5"
                     >Norway is a quiet and beautiful place, welcome to a quiet country</p>
-                    <div class="btn btn-outline-light mt-5" @click="changePage('More')">More</div>
+                    <div class="btn btn-outline-light mt-5" @click="changePage">More</div>
                   </div>
                 </div>
               </div>
@@ -45,7 +45,7 @@
               </div>
               <div class="col-12 col-md-4 d-flex justify-content-center">
                 <div class="d-flex flex-column">
-                  <div class="btn btn-dark btn-lg m-3 animated-2" @click="changePage('Norway')">More</div>
+                  <div class="btn btn-dark btn-lg m-3 animated-2" @click="changePage">More</div>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@
               <small>iceland</small>
               <div class="h3">Country</div>
               <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
+              <div class="btn btn-sm btn-outline-warning" @click="changePage">More</div>
             </div>
           </div>
           <div class="col-md-4 animated-3 py-5 bg-cover picture-background-1">
@@ -85,7 +85,7 @@
               <small>norway</small>
               <div class="h3">Wild</div>
               <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
+              <div class="btn btn-sm btn-outline-warning" @click="changePage">More</div>
             </div>
           </div>
           <div class="col-md-4 animated-3 py-5 bg-cover picture-background-1">
@@ -93,7 +93,7 @@
               <small>finland</small>
               <div class="h3">Animal</div>
               <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
+              <div class="btn btn-sm btn-outline-warning" @click="changePage">More</div>
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@
               <small>denmark</small>
               <div class="h3">City</div>
               <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
+              <div class="btn btn-sm btn-outline-warning" @click="changePage">More</div>
             </div>
           </div>
           <div class="col-md-4 animated-3 py-5 bg-cover picture-background-2">
@@ -111,7 +111,7 @@
               <small>iceland</small>
               <div class="h3">Living</div>
               <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
+              <div class="btn btn-sm btn-outline-warning" @click="changePage">More</div>
             </div>
           </div>
           <div class="col-md-4 animated-3 py-5 bg-cover picture-background-2">
@@ -119,7 +119,7 @@
               <small>norway</small>
               <div class="h3">Mountaineering</div>
               <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
+              <div class="btn btn-sm btn-outline-warning" @click="changePage">More</div>
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@
               <small>iceland</small>
               <div class="h3">Trolltunga</div>
               <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
+              <div class="btn btn-sm btn-outline-warning" @click="changePage">More</div>
             </div>
           </div>
           <div class="col-md-4 animated-3 py-5 bg-cover picture-background-3">
@@ -137,7 +137,7 @@
               <small>finland</small>
               <div class="h3">Wild Horse</div>
               <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
+              <div class="btn btn-sm btn-outline-warning" @click="changePage">More</div>
             </div>
           </div>
           <div class="col-md-4 animated-3 py-5 bg-cover picture-background-3">
@@ -145,7 +145,7 @@
               <small>norway</small>
               <div class="h3">volcanic</div>
               <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="btn btn-sm btn-outline-warning" @click="changePage('More')">More</div>
+              <div class="btn btn-sm btn-outline-warning" @click="changePage">More</div>
             </div>
           </div>
         </div>
@@ -184,7 +184,7 @@
             <small>norway</small>
             <div class="h3 text-dark">City</div>
             <p class="my-4">Slowly experience the city and relive the meaning of life.</p>
-            <div class="btn btn-sm btn-outline-primary" @click="changePage('')">More</div>
+            <div class="btn btn-sm btn-outline-primary" @click="changePage">More</div>
           </div>
         </div>
         <div class="row flex-row-reverse">
@@ -194,7 +194,7 @@
               <small>iceland</small>
               <div class="h3 text-dark">Wild</div>
               <p class="my-4">The endless field, feel the pulse of the world's breath.</p>
-              <div class="btn btn-sm btn-outline-primary" @click="changePage('')">More</div>
+              <div class="btn btn-sm btn-outline-primary" @click="changePage">More</div>
             </div>
           </div>
         </div>
@@ -239,15 +239,14 @@
               :zoom="14"
               style="width: 100%; height: 100%"
             >
-              <!-- <GmapMarker
-                :shape="shape"
+              <GmapMarker
                 :key="index"
                 v-for="(m, index) in markers"
                 :position="m.position"
                 :clickable="true"
                 :draggable="true"
                 @click="center=m.position"
-              /> -->
+              />
             </GmapMap>
           </div>
         </div>
@@ -285,78 +284,74 @@
 <script>
 import $ from "jquery";
 
-
 export default {
   data() {
     return {
       products: [],
       filterTodos: [],
-      isLoading: false
+      markers: [
+        {
+          position: {
+            lat: 64.146582,
+            lng: -21.9426354
+          }
+        }
+      ]
     };
   },
-  methods: {
-    changePage(name) {
-      if (
-        (name == "",
-        "Norway",
-        "Iceland",
-        "Finland",
-        "Denmark",
-        "Sweden",
-        "More")
-      ) {
-        this.$router.push("/Shopping");
-      }
+  computed: {
+    isLoading() {
+      return this.$store.state.isLoading
     }
   },
-  
+  methods: {
+    positionCon(pos) {
+      console.log('pos', pos)
+    },
+    changePage() {
+      this.$router.push("/Shopping");
+    }
+  },
   created() {
-    // social icon tool
     $(function() {
       $('[data-toggle="tooltip"]').tooltip();
     });
 
     //Home-page-animated(JQuery-scope)
     $(document).ready(function() {
-  $(window).scroll(function() {
-    let scrollPos = $(window).scrollTop();
-    let windowHeight = $(window).height();
-    $("#scroll_1").css("transform", "translateY(" + -scrollPos / 3 + "px)");
-    $("#scroll_2").css("transform", "translateY(" + -scrollPos / 2 + "px)");
-    $("#deer-move").css("transform", "translateX(" + scrollPos / 6 + "px)");
-    $("#sheep-move").css("transform", "translateX(" + -scrollPos / 10 + "px)");
-    $(".animated").each(function() {
-      let thisPos = $(this).offset().top;
-      if (windowHeight + scrollPos >= thisPos) {
-        $(this).addClass("fadeIn");
-      }
+      $(window).scroll(function() {
+        let scrollPos = $(window).scrollTop();
+        let windowHeight = $(window).height();
+        $("#scroll_1").css("transform", "translateY(" + -scrollPos / 5 + "px)");
+        $("#scroll_2").css("transform", "translateY(" + -scrollPos / 2 + "px)");
+        $("#deer-move").css("transform", "translateX(" + scrollPos / 6 + "px)");
+        $("#sheep-move").css("transform", "translateX(" + -scrollPos / 10 + "px)");
+        $(".animated").each(function() {
+          let thisPos = $(this).offset().top;
+          if (windowHeight + scrollPos >= thisPos) {
+            $(this).addClass("fadeIn");
+          }
+        });
+        $(".animated-2").each(function() {
+          let thisPos = $(this).offset().top;
+          if (windowHeight + scrollPos >= thisPos) {
+            $(this).addClass("fadeIn");
+          }
+        });
+        $(".animated-3").each(function() {
+          let thisPos = $(this).offset().top;
+          if (windowHeight + scrollPos >= thisPos) {
+            $(this).addClass("fadeIn");
+          }
+        });
+        $(".animated-5").each(function() {
+          let thisPos = $(this).offset().top;
+          if (windowHeight + scrollPos >= thisPos) {
+            $(this).addClass("fadeIn");
+          }
+        });
+      });
     });
-    $(".animated-2").each(function() {
-      let thisPos = $(this).offset().top;
-      if (windowHeight + scrollPos >= thisPos) {
-        $(this).addClass("fadeIn");
-      }
-    });
-    $(".animated-3").each(function() {
-      let thisPos = $(this).offset().top;
-      if (windowHeight + scrollPos >= thisPos) {
-        $(this).addClass("fadeIn");
-      }
-    });
-    $(".animated-4").each(function() {
-      let thisPos = $(this).offset().top;
-      if (windowHeight + scrollPos >= thisPos) {
-        $(this).addClass("fadeIn");
-      }
-    });
-    $(".animated-5").each(function() {
-      let thisPos = $(this).offset().top;
-      if (windowHeight + scrollPos >= thisPos) {
-        $(this).addClass("fadeIn");
-      }
-    });
-  });
-});
   }
 };
 </script> 

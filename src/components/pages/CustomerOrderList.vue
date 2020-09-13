@@ -232,34 +232,33 @@ export default {
       newList: {
         user: {}
       },
-      //起始資料值
       pagination: {},
       isNew: false,
-      //判斷是否為新的物件或是編輯舊的物件
-      isLoading: false,
-      //loding icon判斷條件
       status: {
         fileUploading: false
       }
-      //圖片載入時觸發條件
     };
   },
+  computed: {
+    isLoading() {
+      return this.$store.state.isLoading
+    }
+  },
   methods: {
-    //page = 1為ES6語法，若參數沒有值傳進來則預設為1
-    getCustomerList(page = 1) {
+    async getCustomerList(page = 1) {
+      const vm = this
       const api = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
       }/admin/orders?page=${page}`;
-      const vm = this;
-      console.log(process.env.APIPATH, process.env.CUSTOMPATH);
-      this.$http.get(api).then(res => {
-        console.log(res.data.orders);
-        vm.customerList = res.data.orders;
-        vm.pagination = res.data.pagination;
-        //把取出來的api傳入定義的空陣列或物件裡
-      });
+      try {
+        const res = await axios.get(api)
+        vm.customerList = res.data.orders
+        vm.pagination = res.data.pagination
+      } catch(err) {
+        console.log(err)
+      } 
     },
-    updateCustomerList() {
+    async updateCustomerList() {
       const vm = this;
       const api = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
@@ -279,20 +278,23 @@ export default {
         }
       });
     },
-    // getCustomer(id) {
-    //   let api = `${process.env.APIPATH}/api/${
-    //     process.env.CUSTOMPATH
-    //   }/admin/order/${id}`;
-    //   const vm = this;
-    //   this.$http.get(api).then(res => {});
-    // },
-    // deleteOrder(id) {
-    //   let api =`${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/admin/order/${id}`;
-    //   const vm = this;
-    //   this.$http.delete(api).then(res=>{
-    //     vm.getCustomerList();
-    //   })
-    // },
+    getCustomer(id) {
+      let api = `${process.env.APIPATH}/api/${
+        process.env.CUSTOMPATH
+      }/admin/order/${id}`;
+      const vm = this;
+      this.$http.get(api).then(res => {});
+    },
+    async deleteOrder(id) {
+      let api =`${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/admin/order/${id}`;
+      const vm = this;
+      try {
+        const res = await axios.delete(api)
+      } catch(err) {
+        console.log(err)
+        vm.getCustomerList();
+      }
+    },
     openCustomerModal(item) {
       this.newList = Object.assign({}, item)
       $("#customerModal").modal("show");

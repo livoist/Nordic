@@ -6,7 +6,6 @@
     <div class="card-header bg-dark text-center text-white font-weight-bold">Personal Information
 </div>
     <div class="card-body">
-      <!-- 點擊事件createOrder -->
       <form @submit.prevent="createOrder">
         <div class="form-row">
           <div class="col-12">
@@ -110,11 +109,6 @@ import $ from "jquery";
 export default {
   data() {
     return {
-      products: [],
-      product: {},
-      status: {
-        loadingItem: ""
-      },
       form: {
         user: {
           name: "",
@@ -123,19 +117,15 @@ export default {
           address: ""
         },
         message: ""
-      },
-      cart: {},
-      isLoading: false,
-      coupon_code: ""
-    };
+      }
+    }
   },
   methods: {
     createOrder() {
       const vm = this;
       const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/order`;
       const order = vm.form;
-      // vm.isLading = true;
-      //Vue官方驗證函式，抓取驗證資源，判斷輸入欄位若為正確，則訂單建立，反之印出欄位不完整
+      // Vue官方驗證函式，抓取驗證資源，判斷輸入欄位若為正確，則訂單建立，反之印出欄位不完整
       this.$validator.validate().then(result => {
         if (result) {
           this.$http.post(api, { data: order }).then(res => {

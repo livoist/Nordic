@@ -99,8 +99,6 @@ input[type="checkbox"]:checked {
 <script>
 import Alert from '../AlertMessage';
 
-
-
 export default {
   name: "HelloWorld",
   data() {
@@ -115,22 +113,35 @@ export default {
     Alert,
   },
   methods: {
-    signin() {
+    async signin() {
       const api = `${process.env.APIPATH}/admin/signin`;
       const checkAPI = `${process.env.APIPATH}/api/user/check`;
       const vm = this;
-      this.$http.post(api, vm.user).then(res => {
-        console.log(res.data);
+      try {
+        const res = await axios.post(api, vm.user)
         if (res.data.success) {
-          vm.$router.push("/admin/products");
-        }else {
-          this.$bus.$emit("message:push","Link Error","danger")
-          setTimeout(()=>{
-            this.$bus.$emit("message:push","Check your Account or Password","danger")
-          },3000)
-          
+          vm.$router.push("/admin/products")
+        } else {
+          this.$bus.$emit("message: push", "Link Error", "danger")
+          setTimeout(() => {
+            this.$bus.$emit("message:push", "Check your Account or Password", "danger")
+          }, 3000)
         }
-      });
+      } catch(err) {
+
+      }
+      // this.$http.post(api, vm.user).then(res => {
+      //   console.log(res.data);
+      //   if (res.data.success) {
+      //     vm.$router.push("/admin/products");
+      //   }else {
+      //     this.$bus.$emit("message:push","Link Error","danger")
+      //     setTimeout(()=>{
+      //       this.$bus.$emit("message:push","Check your Account or Password","danger")
+      //     },3000)
+          
+      //   }
+      // });
     }
   }
 };

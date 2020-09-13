@@ -20,12 +20,6 @@ import CartList from '@/components/pages/CartList'
 import FinishPage from '@/components/pages/FinishPage'
 import ShoppingSinglePage from '@/components/pages/ShoppingSinglePage'
 
-
-
-
-
-
-
 Vue.use(Router)
 
 export default new Router({
@@ -68,8 +62,7 @@ export default new Router({
           name: 'CustomerOrderList',
           component: CustomerOrderList,
           meta: { requiresAuth: true },
-        },
-
+        }
       ]
     },
     {
@@ -111,7 +104,7 @@ export default new Router({
           path: 'FinishPage',
           name: 'FinishPage',
           component: FinishPage,
-        },
+        }
       ]
     },
   ],

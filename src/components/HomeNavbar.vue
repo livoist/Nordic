@@ -4,7 +4,6 @@
 <nav class="navbar fixed-top navbar-expand-lg py-2 bar-fadein">
   <div>
     <a class="h5 m-0 text-white font-weight-bold d-flex justify-content-center align-items-center" @click.prevent="goHome" href="#" style="text-decoration: none">
-      <img src="https://upload.cc/i1/2019/02/19/0KSrkx.png" alt="">
       <span class="mx-3">Nordic</span>
       </a> 
     </div>
@@ -24,9 +23,6 @@
         <a class="nav-link mr-5 mt-2 navbar-title1 " href="#detail-box">Living</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link mr-5 mt-2 navbar-title1" href="#"  @click.prevent="modalShow()">About us</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link font-weight-bold text-center mt-2 login-link" href="#" style="border:1px solid black" @click="ChangeLogin()">Admin</a>
       </li>
     </ul>
@@ -38,6 +34,9 @@
 </template>
 
 <style>
+.navbar {
+  background: #000;
+}
 .navbar-title1 {
   position: relative;
   transition: 0.5s
@@ -69,29 +68,14 @@
 .dropdown {
   display: none;
 }
-.bar-fadein {
-  background-color: transparent;
-  transition: 1s;
-}
-
-
 </style>
 
 
 <script>
 import $ from 'jquery'
 
-
 export default {
-  data() {
-    return {
-
-    }
-  },
   methods: {
-    modalShow() {
-      $('.about-us-modal').addClass("about-us-modal-active")
-    },
     goHome(){
       this.$router.push('/HomePage')
     },
@@ -100,24 +84,7 @@ export default {
     },
     ChangeLogin() {
       this.$router.push('/Login')
-    },
-  
-  },
-  created() {
-
-    // navbar-fadeIn-scope(JQuery)
-    $(document).ready(function(){
-  $(window).scroll(function(){
-    let scrollPos = $(window).scrollTop();
-    let windowHeight = $(window).height();
-    console.log(scrollPos)
-    if (scrollPos > 50) {
-      $(".bar-fadein").css('background-color','#2c3144')
-    }else if (scrollPos < 50) {
-      $(".bar-fadein").css({'background-color':'transparent','transition':'0.3s'})
     }
-  })
-})
   }
 }
 </script>

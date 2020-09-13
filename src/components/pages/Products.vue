@@ -6,7 +6,6 @@
         <button class="btn btn-outline-primary mr-3" @click="openModal(true)"><i class="fas fa-plus-square mr-2"></i>Build a new product</button>
       </div>
     </div>
-    <!--點擊事件，傳入參數true為建立新產品觸發行為 -->
       <div class="form-row">
         <div class="col-12">
           <table class="table mt-4">
@@ -27,13 +26,11 @@
           <td>
             <span v-if="item.is_enabled" class="text-success"><i class="fas fa-lock-open"></i></span>
             <span v-else class="text-danger"><i class="fas fa-lock"></i></span>
-            <!-- 24，25，判斷式，判斷是否為不能點擊狀態 -->
           </td>
           <td>
             <div class="btn btn-outline-primary btn-sm my-1" @click="openModal(false ,item)"><i class="fas fa-pencil-alt"></i></div>
             <div class="btn btn-outline-primary btn-sm my-1" @click="deleteProduct(item)"><i class="fas fa-trash"></i></div>
           </td>
-          <!-- 28，點擊事件，傳入參數false為編輯產品觸發行為，傳入item，為原本的物件進行編輯 -->
         </tr>
       </tbody>
     </table>
@@ -52,7 +49,7 @@
             <span aria-hidden="true">&laquo;</span>
             <span class="sr-only">Previous</span>
           </a>
-          <!-- 38，點擊事件(取消預設行為)，取得產品頁面的所在頁數-1(回上頁) -->
+          <!-- 點擊事件(取消預設行為)，取得產品頁面的所在頁數-1(回上頁) -->
         </li>
         <li
           class="page-item"
@@ -62,8 +59,8 @@
         >
           <a class="page-link" href="#" @click.prevent="getProducts(page)">{{ page }}</a>
         </li>
-        <!-- 45，點擊事件(取消預設行為)，取得產品頁面的所在頁數，並且顯示出來 -->
-        <!-- 44，條件切換(active)，若現在的頁面等於取得的頁面則顯示active -->
+        <!-- 點擊事件(取消預設行為)，取得產品頁面的所在頁數，並且顯示出來 -->
+        <!-- 條件切換(active)，若現在的頁面等於取得的頁面則顯示active -->
         <li class="page-item" :class="{'disabled': !pagination.has_next}">
           <a
             class="page-link"
@@ -74,7 +71,7 @@
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>
-          <!-- 48，點擊事件(取消預設行為)，取得產品頁面的所在頁數+1(往下頁) -->
+          <!-- 點擊事件(取消預設行為)，取得產品頁面的所在頁數+1(往下頁) -->
         </li>
       </ul>
     </nav>
@@ -116,7 +113,6 @@
                     or upload image
                     <i class="fas fa-sync fa-spin" v-if="status.fileUploading"></i>
                   </label>
-                  <!-- 87，圖片載入判斷 -->
                   <input
                     type="file"
                     id="customFile"
@@ -131,7 +127,6 @@
                   :src="tempProduct.imageUrl"
                   alt
                 >
-                <!-- 100，綁定圖片存入位置 -->
               </div>
               <div class="col-sm-8">
                 <div class="form-group">
@@ -222,7 +217,6 @@
                       type="checkbox"
                       id="is_enabled"
                     >
-                    <!-- 判斷是否啟用 187,188 -->
                     <label class="form-check-label" for="is_enabled">enable</label>
                   </div>
                 </div>
@@ -232,7 +226,6 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">cancel</button>
             <button type="button" class="btn btn-primary" @click="updateProduct">comfirm</button>
-            <!-- 202，點擊事件，確認更新 -->
           </div>
         </div>
       </div>
@@ -291,7 +284,6 @@ export default {
     };
   },
   methods: {
-    //page = 1為ES6語法，若參數沒有值傳進來則預設為1
     getProducts(page = 1) {
       const api = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
@@ -342,31 +334,28 @@ export default {
       });
       vm.getProducts();
     },
-    //modal編輯行為(傳入參數是否為新的true(建立全新的物件) or false(false傳入本來的item進行編輯)
     openModal(isNew, item) {
       if (isNew) {
         this.tempProduct = {};
         this.isNew = true;
       } else {
         this.tempProduct = Object.assign({}, item);
-        //ES6語法，防止物件傳參考特性，繼承到全面物件的方法，建立新的物件並把item傳入全新物件裡
         this.isNew = false;
       }
       $("#productModal").modal("show");
     },
     uploadFile() {
-      console.log(this);
       const uploadedFile = this.$refs.files.files[0];
-      //取出檔案
+      // 取出檔案
       const vm = this;
       const formData = new FormData();
       //建立formData物件
       formData.append("file-to-upload", uploadedFile);
-      //把(上傳的位置,上傳的圖片)圖片上傳
+      // 把(上傳的位置,上傳的圖片)圖片上傳
       const url = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
       }/admin/upload`;
-      //判斷上傳圖片是否顯示(預設false，寫入中為true，)
+      // 判斷上傳圖片是否顯示(預設false，寫入中為true，)
       vm.status.fileUploading = true;
       this.$http
         .post(url, formData, {
@@ -375,14 +364,14 @@ export default {
           }
         })
         .then(response => {
-          console.log(response.data);
+
           if (response.data.success) {
-            //判斷上傳icon是否顯示(預設false，寫入完成為false)
+            // 判斷上傳icon是否顯示(預設false，寫入完成為false)
             vm.status.fileUploading = false;
             //vm.tempProduct.imageUrl = response.data.imageUrl
             //console.log(vm.tempProduct)
             vm.$set(vm.tempProduct, "imageUrl", response.data.imageUrl);
-            //因為沒有雙向綁定，所以用vue-set強制寫入(寫入的物件,寫入的屬性,寫入資料的路徑)
+            // 因為沒有雙向綁定，所以用vue-set強制寫入(寫入的物件,寫入的屬性,寫入資料的路徑)
           } else {
             vm.status.fileUploading = false;
           }
@@ -392,7 +381,6 @@ export default {
       this.$router.push("/HomePage");
     }
   },
-  //Vue初始化執行行為
   created() {
     this.getProducts();
     

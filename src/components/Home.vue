@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
   <div class="allweb">
     <Alert></Alert>
-    <AboutUsModal></AboutUsModal>
     <loading :active.sync="isLoading" :is-full-page="true">
   <FullLoadingPage></FullLoadingPage>
   </loading>
@@ -23,10 +23,9 @@
     <Footer></Footer>
   </div>
 </body>
+
 </html>
 </template>
-
-
 
 <script>
 $(function() {
@@ -37,7 +36,6 @@ import $ from "jquery";
 import HomeNavbar from "./HomeNavbar";
 import Carousel from "./Carousel";
 import FullLoadingPage from "./FullLoadingPage";
-import AboutUsModal from "./AboutUsModal";
 import Alert from "./AlertMessage";
 import Footer from "./Footer"
 
@@ -52,21 +50,15 @@ export default {
     Carousel,
     HomeNavbar,
     FullLoadingPage,
-    AboutUsModal,
     Alert,
     Footer,
   },
   methods: {},
-  // computed: {
-  //   isLoading() {
-  //     return this.$store.state.isLoading;
-  //   }
-  // },
   mounted() {
     this.isLoading = true;
     setTimeout(() => {
       this.isLoading = false;
-    },2000)
+    }, 2000)
   },
   created() {
     this.$router.push('/HomePage')

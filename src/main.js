@@ -3,7 +3,6 @@
 //載入時出問題，要去看路徑有沒有錯誤！！！！！
 //所有js外部插件以及自定義js的存放處！！！！！
 
-
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
@@ -65,7 +64,6 @@ router.beforeEach((to,from,next)=>{
   console.log('to',to,'from',from,'next',next)
   if (to.meta.requiresAuth) {
     const api = `${process.env.APIPATH}/api/user/check`;
-    const vm = this;
     axios.post(api).then((response) => {
       console.log(response.data);
       if (response.data.success){

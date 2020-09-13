@@ -1,63 +1,89 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import $ from "jquery"
 
 Vue.use(Vuex)
 
+const LOADING = 'LOADING'
+const HOME_LOADING = 'HOME_LOADING'
+const LOADING_ITEM = 'LOADING_ITEM'
+const GET_PRODUCTS = 'GET_PRODUCTS'
+const GET_CARTS = 'GET_CARTS'
+const GET_PRODUCT = 'GET_PRODUCT'
+
 export default new Vuex.Store({
   strict: true,
-  // Vuex的嚴謹模式
   state: {
     isLoading: false,
     homeLoading: false,
     products: [],
-    filterTodos: [],
+    product: {},
+    loadingItem: '',
+    cart: {
+      carts: []
+    }
+  },
+  mutations: {
+    [LOADING](state, payload) {
+      state.isLoading = payload;
+    },
+    [LOADING_ITEM](state, payload) {
+      state.loadingItem = payload
+    },
+    [HOME_LOADING](state, payload) {
+      state.homeLoading = payload;
+    },
+    [GET_PRODUCTS](state, payload) {
+      state.products = payload
+    },
+    [GET_PRODUCT](state, payload) {
+      state.product = payload
+    },
+    [GET_CARTS](state, payload) {
+      state.cart = payload
+    }
   },
   actions: {
-    //payload 載荷(status)
-    updateLoading(context, status) {
-      context.commit('LOADING', status);
-      //context，擁有方法和屬性的函式，用以提交行為給mutaions改變狀態。
-    },
-    updateHomeLoading(context, status) {
-      context.commit('HOMELOADING', status);
-    },
-    getProducts(context) {
+    async getProducts({ commit }) {
       const url = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
         }/products/all`;
-      context.commit('LOADING', true);
-      axios.get(url).then(res => {
-        context.commit('PRODUCTS', res.data.products);
-        context.commit('CATEGORIES', res.data.products);
-        context.commit('LOADING', false);
-        console.log(res);
-      });
+      commit('LOADING', true)
+      try {
+        const res = await axios.get(url)
+        commit('GET_PRODUCTS', res.data.products);
+        commit('LOADING', false)
+      } catch (err) {
+        console.log(err)
+      }
     },
-  },
-  // 操作行為，操作動作，非同步行為settimeout or Ajax 在actions完成，不然資料狀態會對不上且會很難除錯。
-  mutations: {
-    LOADING(state, status) {
-      state.isLoading = status;
-      // LOADING會有兩個參數，一個是現在的狀態state，一個是要修改的狀態status
+    async getProduct({ commit }, id) {
+      const url = `${process.env.APIPATH}/api/${
+        process.env.CUSTOMPATH
+      }/product/${id}`;
+      commit('LOADING_ITEM', id)
+      commit('LOADING', true)
+      try {
+        const res = await axios.get(url)
+        $("#productModal").modal("show");
+        commit('LOADING', false)
+        commit('GET_PRODUCT', res.data.product)
+        commit('LOADING_ITEM', '')
+      } catch(err) {
+        console.log(err)
+      }
     },
-    HOMELOADING(state, status) {
-      state.homeLoading = status;
-    },
-    // PRODUCTS(state, payload) {
-    //  state.products = payload
-    // },
-    // CATEGORIES(state, payload) {
-    //     let newAry = [];
-    //     if (type == "") {
-    //       vm.filterTodos = payload;
-    //     } else {
-    //       newAry = payload.filter(function(product) {
-    //         return product.category == type;
-    //       });
-    //       state.filterTodos = newAry;
-    //     }
-    // }
-  },
-  //改變資料狀態
+    async getCarts({ commit }) {
+      const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
+      commit('LOADING', true)
+      try {
+        const res = await axios.get(url)
+        commit('GET_CARTS', res.data.data)
+        commit('LOADING', false)
+      } catch(err) {
+        console.log(err)
+      }
+    }
+  }
 })

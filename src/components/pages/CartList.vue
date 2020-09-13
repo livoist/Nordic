@@ -5,14 +5,12 @@
       v-if="cart.carts.length == 0"
     >
       <div class="h3 py-5 text-center text-white">Your Cart is Empty</div>
-      <router-link class="btn btn-md btn-dark my-4" style="z-index: 1001" :to="{name:'Shopping'}" exact>Back to Pick</router-link>
+      <router-link class="btn btn-md btn-dark my-4" style="z-index: 1001" :to="{ name: 'Shopping' }" exact>Back to Pick</router-link>
     </div>
     <div class="container mt-5" v-else>
       <div class="row d-flex justify-content-center">
         <loading :active.sync="isLoading"></loading>
         <div class="col-12 col-md-6">
-          <!--先把抓出來的res.data.data存入陣列cart
-          ，在用v-for取出data中的carts(cart.carts)，印出的部分再用item下的product取出裡面的值做渲染-->
           <ul class="padding-0">
             <div
               class="cartList position-relative mb-3"
@@ -50,7 +48,7 @@
                 <div>
                   <div
                   class="btn btn-outline-dark btn-sm my-2"
-                  @click="shoppingPage()"
+                  @click="getPoduct(id)"
                 ><i class="fas fa-pencil-alt"></i></div>
                 <div
                   class="btn btn-outline-dark btn-sm my-2"
@@ -81,7 +79,7 @@
               <div
                 class="h3 text-right text-success mt-2s"
                 v-if="cart.total!=cart.final_total"
-              >- {{ Math.floor((cart.final_total/cart.total)*100) }}% Total: ${{ cart.final_total }}</div>
+              >- {{ Math.floor((cart.final_total / cart.total) * 100) }}% Total: ${{ cart.final_total }}</div>
               <div class="h5 text-white text-right" v-else>Total: ${{ cart.total }}</div>
             </div>
             <!--  -->
@@ -108,47 +106,36 @@
 
 <script>
 import $ from "jquery";
+import { mapState } from 'vuex'
 
 export default {
   data() {
     return {
-      cart: {
-        carts: []
-      },
-      coupon_code: "",
-      isLoading: false
+      coupon_code: ""
     };
+  },
+  computed: {
+    ...mapState([
+      'cart',
+      'isLoading'
+    ])
   },
   methods: {
     //取得購物車資訊
     getCart() {
-      const vm = this;
-      const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;
-      vm.isLoading = true;
-      //全畫面loading icon觸發
-      this.$http.get(url).then(res => {
-        console.log(res);
-        vm.isLoading = false;
-        vm.cart = res.data.data;
-        console.log(res.data.data);
-        //定義陣列Cart，並把更新後的Data傳入Cart
-        //全畫面loading icon關閉
-      });
+      this.$store.dispatch('getCarts')
     },
     removeCartItem(id) {
       const vm = this;
       const url = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
       }/cart/${id}`;
-      vm.isLoading = true;
       this.$http.delete(url).then(res => {
         if (res.data.success) {
           this.$bus.$emit('message:push','Delete Success','success')
-          vm.isLoading = false;
           vm.getCart();
-        }else {
+        } else {
           this.$bus.$emit('message:push','Delete Error','danger')
-          vm.isLoading = false;
           vm.getCart();
         }
       });
@@ -159,11 +146,8 @@ export default {
       const coupon = {
         code: vm.coupon_code
       };
-      vm.isLoading = true;
       this.$http.post(url, { data: coupon }).then(res => {
-        console.log(res);
         vm.getCart();
-        vm.isLoading = false;
         vm.coupon_code = "";
       });
     },
@@ -177,7 +161,6 @@ export default {
   },
   created() {
     this.getCart();
-    this.addCouponCode();
   }
 };
 </script>

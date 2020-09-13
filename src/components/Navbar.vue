@@ -23,15 +23,17 @@
 export default {
   name: "Navbar",
   methods: {
-    signout() {
+    async signout() {
       const vm = this;
       const url = `${process.env.APIPATH}/logout`;
-      this.$http.post(url).then(response => {
-        console.log(response.data);
-        if (response.data.success) {
-          vm.$router.push("/signin");
+      try {
+        const res = await axios.get(url)
+        if (res.data.success) {
+          vm.$router.push("/signin")
         }
-      });
+      } catch(err) {
+        console.log(err)
+      }
     },
     frontPage() {
       this.$router.push('/HomePage')
